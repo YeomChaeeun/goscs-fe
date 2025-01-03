@@ -15,8 +15,8 @@ const App: React.FC = () => {
     const updatedScores = [...scores];
     updatedScores[questionId - 1] = value;
     setScores(updatedScores);
-    setError(null); // 선택 시 에러 메시지 초기화
-    setMissingQuestions([]); // 선택 시 누락 항목 초기화
+    setError(null);
+    setMissingQuestions([]);
   };
 
   const calculateProfile = () => {
