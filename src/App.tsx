@@ -1,18 +1,15 @@
-import React from "react";
-import Questionnaire from "./components/Questionnaire";
-import {BrowserRouter, Route, Routes} from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home.tsx";
+import Checklist from "./pages/Checklist.tsx";
 
-const App: React.FC = () => {
+const App = () => {
   return (
     <BrowserRouter>
-        <Routes>
-
-            <Route path={'/'} element={<Home />} />
-            <Route path={'/checklist'} element={<Questionnaire />} />
-        </Routes>
+      <Routes>
+        <Route path={"/"} element={<Home />} />
+        <Route path={"/checklist"} element={<Checklist />} />
+      </Routes>
     </BrowserRouter>
   );
 };
-
 export default App;
