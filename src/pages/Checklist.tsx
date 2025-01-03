@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { questions, InvestmentProfile } from "../data/questions";
 import { recommendations } from "../data/recommendations";
+import { Link } from "react-router-dom";
 
 const Checklist: React.FC = () => {
   const [scores, setScores] = useState<number[]>(
@@ -10,6 +11,23 @@ const Checklist: React.FC = () => {
   const [profile, setProfile] = useState<InvestmentProfile | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [missingQuestions, setMissingQuestions] = useState<number[]>([]);
+
+  const assetAllocation = {
+    "안전형 투자자": {
+      채권: 80,
+      현금: 20,
+    },
+    "균형형 투자자": {
+      주식: 50,
+      채권: 40,
+      현금: 10,
+    },
+    "공격형 투자자": {
+      주식: 80,
+      채권: 15,
+      현금: 5,
+    },
+  };
 
   const handleOptionChange = (questionId: number, value: number) => {
     const updatedScores = [...scores];
@@ -86,8 +104,20 @@ const Checklist: React.FC = () => {
           <h2>추천 종목</h2>
           <ul>
             {recommendations[profile].map((item) => (
-              <li key={item}>{item}</li>
+              <li key={item.id}>
+                <Link to={`/details/${item.id}`}>{item.title}</Link>
+              </li>
             ))}
+          </ul>
+          <h2>자산 분배 추천</h2>
+          <ul>
+            {Object.entries(assetAllocation[profile]).map(
+              ([asset, percentage]) => (
+                <li key={asset}>
+                  {asset}: {percentage}%
+                </li>
+              )
+            )}
           </ul>
         </div>
       )}
