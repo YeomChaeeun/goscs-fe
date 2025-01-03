@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { questions, InvestmentProfile } from "../data/questions";
+import { questions, InvestmentProfile } from "./questions";
 
 const Questionnaire: React.FC = () => {
   const [scores, setScores] = useState<number[]>(
