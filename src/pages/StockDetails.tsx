@@ -112,7 +112,7 @@ const StockDetails: React.FC = () => {
 
       {newsLoadable.state === "hasError" && (
         <Typography color="error" sx={{ textAlign: "center", my: 4 }}>
-          An error occurred while loading the news.
+          An error occurred while loading the news. Please try reloading again.
         </Typography>
       )}
 
