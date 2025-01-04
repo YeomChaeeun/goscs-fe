@@ -2,8 +2,8 @@
 import React, {useState} from "react";
 import {InvestmentProfile, questions} from "../data/questions";
 import {useNavigate} from "react-router-dom";
-import {useRecoilState} from "recoil";
-import { checklistState } from "../recoil/atoms/assetAtom";
+import {useRecoilState, useSetRecoilState} from "recoil";
+import {assetState, checklistState} from "../recoil/atoms/assetAtom";
 import {theme} from "../App.tsx";
 
 export const assetAllocation = {
@@ -24,6 +24,7 @@ export const assetAllocation = {
 };
 const Checklist: React.FC = () => {
   const navigate = useNavigate();
+  const setAssetStateRecoil = useSetRecoilState(assetState)
 
   const [state, setState] = useRecoilState(checklistState);
   const { scores, profile } = state;
@@ -64,9 +65,9 @@ const Checklist: React.FC = () => {
     }
 
     setState((prev) => ({ ...prev, profile: determinedProfile }));
-    // setAssetStateRecoil(determinedProfile);
-    console.log(determinedProfile)
-    setState((prev) => ({ ...prev, profile: determinedProfile }));
+    setAssetStateRecoil(determinedProfile);
+    // console.log(determinedProfile)
+    // setState((prev) => ({ ...prev, profile: determinedProfile }));
     navigate('/checklist/result')
   };
 

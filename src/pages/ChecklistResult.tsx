@@ -7,14 +7,15 @@ import {theme} from "../App.tsx";
 
 const ChecklistResult = () => {
     const [state, setState] = useRecoilState(checklistState);
+    const {profile} = state
     return (
         <div>
-            {state.profile && (
+            {profile && (
                 <div style={{padding: "20px", fontFamily: "Arial, sans-serif", color: theme.palette.text.primary}}>
                     <p>당신의 투자 성향은: {state.profile}</p>
                     <h2>추천 종목</h2>
                     <ul>
-                        {recommendations[state.profile ].map((item) => (
+                        {recommendations[profile].map((item :{ id: number; title: string; }) => (
                             <li key={item.id}>
                                 <Link to={`/stockdetail/${item.id}`}>{item.title}</Link>
                             </li>
@@ -22,7 +23,7 @@ const ChecklistResult = () => {
                     </ul>
                     <h2>자산 분배 추천</h2>
                     <ul>
-                        {Object.entries(assetAllocation[state.profile]).map(
+                        {Object.entries(assetAllocation[profile] as { [key: string]: number }).map(
                             ([asset, percentage]) => (
                                 <li key={asset}>
                                     {asset}: {percentage}%
