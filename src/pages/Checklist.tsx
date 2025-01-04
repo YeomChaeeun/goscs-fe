@@ -11,7 +11,7 @@ export const assetAllocation = {
     채권: 80,
     현금: 20,
   },
-  "균형형 투자자": {
+  "위험중립형 투자자": {
     주식: 50,
     채권: 40,
     현금: 10,
@@ -36,7 +36,7 @@ const Checklist: React.FC = () => {
       채권: 80,
       현금: 20,
     },
-    "균형형 투자자": {
+    "위험중립형 투자자": {
       주식: 50,
       채권: 40,
       현금: 10,
@@ -47,9 +47,6 @@ const Checklist: React.FC = () => {
       현금: 5,
     },
   };
-
-  // const [profile, setProfile] = useState<InvestmentProfile | null>(null);
-  // const [error, setError] = useState<string | null>(null);
 
   // const setAssetStateRecoil = useSetRecoilState(assetState)
 
@@ -78,7 +75,7 @@ const Checklist: React.FC = () => {
     if (totalScore <= 40) {
       determinedProfile = "안전형 투자자";
     } else if (totalScore <= 80) {
-      determinedProfile = "균형형 투자자";
+      determinedProfile = "위험중립형 투자자";
     } else {
       determinedProfile = "공격형 투자자";
     }

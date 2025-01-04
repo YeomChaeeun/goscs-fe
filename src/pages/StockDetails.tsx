@@ -45,7 +45,7 @@ const StockDetails: React.FC = () => {
     >
       <h1>추천 항목</h1>
       <p>
-        <strong>제목:</strong> {title}
+        <strong>추천 항목:</strong> {title}
       </p>
       <p>
         <strong>설명:</strong> {investment?.description || "설명이 없습니다."}
