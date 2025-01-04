@@ -12,7 +12,6 @@ const Checklist: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [missingQuestions, setMissingQuestions] = useState<number[]>([]);
 
-  console.log(profile + "성향");
   const assetAllocation = {
     "안전형 투자자": {
       채권: 80,

@@ -7,7 +7,6 @@ const StockDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  // ID로 제목 찾기
   const findTitleById = (id: string) => {
     const allRecommendations = Object.values(recommendations).flatMap(
       (items) => items
