@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Chart } from "react-google-charts";
 import { useRecoilValue } from "recoil";
 import { checklistState } from "../recoil/atoms/assetAtom";
 import { theme } from "../App.tsx";
 
 const AssetAllocation: React.FC = () => {
-  const [totalAsset, setTotalAsset] = useState<number>(0);
+  const [totalAsset, setTotalAsset] = useState<string>();
 
   const assetStateRecoil = useRecoilValue(checklistState);
 
@@ -13,6 +13,17 @@ const AssetAllocation: React.FC = () => {
     "안전형 투자자": { 채권: 80, 예금: 20 },
     "균형형 투자자": { 채권: 40, 주식: 40, REITs: 20 },
     "공격형 투자자": { 주식: 60, 레버리지: 30, 암호화폐: 10 },
+  };
+
+  useEffect(() => {
+    console.log("Current total asset:", totalAsset);
+  }, [totalAsset]);
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    if (/^\d*$/.test(value)) {
+      setTotalAsset(value);
+    }
   };
 
   const profileType = assetStateRecoil.profile;
@@ -25,7 +36,7 @@ const AssetAllocation: React.FC = () => {
     ["Category", "Amount (₩)"],
     ...Object.entries(percentages).map(([key, value]) => [
       key,
-      (totalAsset * value) / 100,
+      (Number(totalAsset) * value) / 100,
     ]),
   ];
 
@@ -47,14 +58,14 @@ const AssetAllocation: React.FC = () => {
       <p>투자 성향에 따라 자산을 아래 비율로 분배합니다:</p>
 
       <input
-        type="number"
+        type="text"
         value={totalAsset}
-        onChange={(e) => setTotalAsset(Number(e.target.value))}
+        onChange={handleInputChange}
         placeholder="총 자산 입력 (₩)"
         style={{ marginBottom: "20px", padding: "10px", width: "300px" }}
       />
 
-      {totalAsset > 0 ? (
+      {Number(totalAsset) > 0 ? (
         <Chart
           chartType="PieChart"
           data={data}
