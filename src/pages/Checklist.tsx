@@ -25,16 +25,9 @@ export const assetAllocation = {
 const Checklist: React.FC = () => {
   const navigate = useNavigate();
   const setAssetStateRecoil = useSetRecoilState(assetState)
-
   const [state, setState] = useRecoilState(checklistState);
   const { scores, profile } = state;
-
-  // const [profile, setProfile] = useState<InvestmentProfile | null>(null);
-  // const [error, setError] = useState<string | null>(null);
-  const [missingQuestions, setMissingQuestions] = useState<number[]>([]);
   const [error, setError] = useState<string | null>(null);
-
-    // const setAssetStateRecoil = useSetRecoilState(assetState)
 
   const handleOptionChange = (questionId: number, value: number) => {
     const updatedScores = [...scores];
@@ -43,13 +36,9 @@ const Checklist: React.FC = () => {
   };
 
   const calculateProfile = () => {
-    const missingQuestions = scores
-      .map((score, index) => (score === 0 ? index + 1 : null))
-      .filter((item) => item !== null);
-
-    if (missingQuestions.length > 0) {
+    if (scores.length !== questions.length) {
         setError("모든 항목을 선택해야 결과를 확인할 수 있습니다.");
-        alert(`모든 항목에 응답해주세요: ${missingQuestions.join(", ")}`);
+        // alert(`모든 항목에 응답해주세요!`);
       return;
     }
 
@@ -66,8 +55,6 @@ const Checklist: React.FC = () => {
 
     setState((prev) => ({ ...prev, profile: determinedProfile }));
     setAssetStateRecoil(determinedProfile);
-    // console.log(determinedProfile)
-    // setState((prev) => ({ ...prev, profile: determinedProfile }));
     navigate('/checklist/result')
   };
 
@@ -99,42 +86,14 @@ const Checklist: React.FC = () => {
           ))}
         </div>
       ))}
-        {error && (
-            <div style={{ color: "red", marginBottom: "20px" }}>
-                {error}
-                {missingQuestions.length > 0 && (
-                    <p>선택되지 않은 항목: {missingQuestions.join(", ")}</p>
-                )}
-            </div>
-        )}
+      {error && (
+          <div style={{ color: "red", marginBottom: "20px" }}>
+              {error}
+          </div>
+      )}
       <button onClick={calculateProfile} style={{ marginTop: "20px" }}>
         투자 성향 확인
       </button>
-      {/*{profile && (*/}
-      {/*  <div*/}
-      {/*    style={{ marginTop: "20px", fontSize: "18px", fontWeight: "bold" }}*/}
-      {/*  >*/}
-      {/*    <p>당신의 투자 성향은: {profile}</p>*/}
-      {/*    <h2>추천 종목</h2>*/}
-      {/*    <ul>*/}
-      {/*      {recommendations[profile].map((item) => (*/}
-      {/*        <li key={item.id}>*/}
-      {/*          <Link to={`/stockdetail/${item.id}`}>{item.title}</Link>*/}
-      {/*        </li>*/}
-      {/*      ))}*/}
-      {/*    </ul>*/}
-      {/*    <h2>자산 분배 추천</h2>*/}
-      {/*    <ul>*/}
-      {/*      {Object.entries(assetAllocation[profile]).map(*/}
-      {/*        ([asset, percentage]) => (*/}
-      {/*          <li key={asset}>*/}
-      {/*            {asset}: {percentage}%*/}
-      {/*          </li>*/}
-      {/*        )*/}
-      {/*      )}*/}
-      {/*    </ul>*/}
-      {/*  </div>*/}
-      {/*)}*/}
     </div>
   );
 };
