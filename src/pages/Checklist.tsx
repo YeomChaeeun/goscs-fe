@@ -5,6 +5,7 @@ import {recommendations} from "../data/recommendations";
 import {Link} from "react-router-dom";
 import {useSetRecoilState} from "recoil";
 import {assetState} from "../recoil/atoms/assetAtom";
+import {theme} from "../App.tsx";
 
 const Checklist: React.FC = () => {
   const [scores, setScores] = useState<number[]>(
@@ -67,7 +68,7 @@ const Checklist: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif", color: theme.palette.text.primary}}>
       <h1>투자 성향 체크리스트</h1>
       {questions.map((question) => (
         <div key={question.id} style={{ marginBottom: "20px" }}>

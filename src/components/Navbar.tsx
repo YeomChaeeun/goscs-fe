@@ -11,6 +11,7 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import {useNavigate} from "react-router-dom";
+import logoImage from '/src/assets/logo_finfit_w.png';
 
 const pages = ['Home', 'CheckList', 'Investment'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -45,27 +46,37 @@ function Navbar() {
     // };
 
     return (
-        <AppBar position="static">
+        <AppBar position="static" >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="#"
+                    <Box
+                        component="img"
+                        src={logoImage}  // 이미지 경로 지정
                         sx={{
-                            mr: 2,
                             display: { xs: 'none', md: 'flex' },
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
+                            mr: 1,
+                            height: '40px'  // 원하는 크기로 조정
                         }}
-                    >
-                        LOGO
-                    </Typography>
+                        alt="logo"
+                    />
+
+                    {/*<Typography*/}
+                    {/*    variant="h6"*/}
+                    {/*    noWrap*/}
+                    {/*    component="a"*/}
+                    {/*    href="/"*/}
+                    {/*    sx={{*/}
+                    {/*        mr: 2,*/}
+                    {/*        display: { xs: 'none', md: 'flex' },*/}
+                    {/*        fontFamily: 'monospace',*/}
+                    {/*        fontWeight: 700,*/}
+                    {/*        letterSpacing: '.3rem',*/}
+                    {/*        color: 'inherit',*/}
+                    {/*        textDecoration: 'none',*/}
+                    {/*    }}*/}
+                    {/*>*/}
+                    {/*    <img src={'../../asset/logo_finfit_w.png'} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
+                    {/*</Typography>*/}
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton

@@ -31,7 +31,7 @@ const themeOptions: ThemeOptions = {
   },
 };
 
-const theme = createTheme(themeOptions);
+export const theme = createTheme(themeOptions);
 
 const App = () => {
   return (
