@@ -46,7 +46,15 @@ function Navbar() {
     // };
 
     return (
-        <AppBar position="static" >
+        <AppBar
+            position="static"
+            sx={(theme) => ({
+                bgcolor: theme.palette.background.default,
+                boxShadow: 'none',
+                borderBottom: '1px solid',
+                borderImage: 'linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)) 1'
+            })}
+        >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Box
