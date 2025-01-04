@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AssetAllocation from "./pages/AssetAllocation.tsx";
 import Checklist from "./pages/Checklist.tsx";
 import Home from "./pages/Home.tsx";
+import './styles/global.css'
 
 const themeOptions: ThemeOptions = {
   palette: {
