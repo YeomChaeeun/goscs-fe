@@ -16,3 +16,9 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
+
+a {
+    color: inherit;  /* 부모 요소의 색상 상속 */
+    text-decoration: none;  /* 밑줄 제거 */
+    cursor: pointer;  /* 커서 포인터 */
+}
