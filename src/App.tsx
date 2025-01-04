@@ -13,7 +13,7 @@ import Investment from "./pages/Investment.tsx";
 
 const themeOptions: ThemeOptions = {
   palette: {
-    mode: "light",
+    mode: "dark",
     primary: {
       main: "#c53b2f",
     },
