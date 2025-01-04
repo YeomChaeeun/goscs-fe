@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import { useRecoilState, useSetRecoilState } from "recoil";
 import { assetState, checklistState } from "../recoil/atoms/assetAtom";
 import { theme } from "../App.tsx";
+import Box from "@mui/material/Box";
+import { Item } from "../styles/box.tsx";
 
 export const assetAllocation = {
   "안전형 투자자": {
@@ -22,12 +24,28 @@ export const assetAllocation = {
   },
 };
 
+// function Item(props: BoxProps) {
+//   const { ...other } = props;
+//   return (
+//     <Box
+//       sx={[
+//         {
+//           padding: "10px",
+//           marginBottom: "20px",
+//           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
+//         },
+//       ]}
+//       {...other}
+//     />
+//   );
+// }
+
 const Checklist: React.FC = () => {
   const navigate = useNavigate();
   const setAssetStateRecoil = useSetRecoilState(assetState);
   const [state, setState] = useRecoilState(checklistState);
-  const { scores, profile } = state;
-  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0); // 현재 질문 인덱스 관리
+  const { scores } = state;
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [error, setError] = useState<string | null>(null);
 
   const handleOptionChange = (value: number) => {
@@ -63,35 +81,49 @@ const Checklist: React.FC = () => {
   const currentQuestion = questions[currentQuestionIndex];
 
   return (
-    <div
-      style={{
-        padding: "20px",
-        fontFamily: "Arial, sans-serif",
-        color: theme.palette.text.primary,
+    <Box
+      sx={{
+        display: "grid",
+        placeItems: "center",
+        height: "100vh",
+        gridTemplateRows: "repeat(2, 1fr)",
       }}
     >
-      <h1>투자 성향 체크리스트</h1>
-      <div style={{ marginBottom: "20px" }}>
-        <h3>{currentQuestion.question}</h3>
-        {currentQuestion.options.map((option) => (
-          <div key={option.label}>
-            <label>
-              <input
-                type="radio"
-                name={`question-${currentQuestion.id}`}
-                value={option.value}
-                checked={scores[currentQuestion.id - 1] === option.value}
-                onChange={() => handleOptionChange(option.value)}
-              />
-              {option.label}
-            </label>
-          </div>
-        ))}
+      <div
+        style={{
+          padding: "20px",
+          fontFamily: "Arial, sans-serif",
+          color: theme.palette.text.primary,
+        }}
+      >
+        <Item>
+          <h1>투자 성향 체크리스트</h1>
+        </Item>
+        <div style={{ marginBottom: "20px" }}>
+          <Item>
+            <h2>{currentQuestion.question}</h2>
+          </Item>
+          {currentQuestion.options.map((option) => (
+            <div key={option.label}>
+              <label>
+                <input
+                  style={{ margin: "10px" }}
+                  type="radio"
+                  name={`question-${currentQuestion.id}`}
+                  value={option.value}
+                  checked={scores[currentQuestion.id - 1] === option.value}
+                  onChange={() => handleOptionChange(option.value)}
+                />
+                {option.label}
+              </label>
+            </div>
+          ))}
+        </div>
+        {error && (
+          <div style={{ color: "red", marginBottom: "20px" }}>{error}</div>
+        )}
       </div>
-      {error && (
-        <div style={{ color: "red", marginBottom: "20px" }}>{error}</div>
-      )}
-    </div>
+    </Box>
   );
 };
 
