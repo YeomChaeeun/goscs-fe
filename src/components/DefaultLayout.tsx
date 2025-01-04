@@ -7,9 +7,13 @@ interface DefaultLayoutProps {
 }
 
 const StyledContainer = styled(Container)(({ theme }) => ({
+    '&.MuiContainer-root': {
+        padding: 0,
+        margin: 0,
+        maxWidth: 'none !important'
+    },
     '& .MuiTypography-root': {  // 모든 Typography에 적용
         color: theme.palette.text.primary,
-        p: 0
     }
 }));
 
@@ -18,7 +22,6 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
         <Box sx={{
             minHeight: '100vh',
             bgcolor: 'background.default',
-            p: 0
         }}>
             <StyledContainer
                 // maxWidth="sm"
