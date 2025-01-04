@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useParams } from "react-router-dom";
 import { investmentDetails } from "../data/investmentDetails";
 import { Chart } from "react-google-charts";
+import {theme} from "../App.tsx";
 
 const AssetAllocation: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -37,7 +38,7 @@ const AssetAllocation: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif", color: theme.palette.text.primary }}>
       <h1>{investment?.title} 자산 분배</h1>
       <p>투자 성향에 따라 자산을 아래 비율로 분배합니다:</p>
 

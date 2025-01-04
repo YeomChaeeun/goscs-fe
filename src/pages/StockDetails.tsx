@@ -2,6 +2,7 @@ import React from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { recommendations } from "../data/recommendations";
 import { investmentDetails } from "../data/investmentDetails";
+import {theme} from "../App.tsx";
 
 const StockDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -29,7 +30,7 @@ const StockDetails: React.FC = () => {
     investment?.recommendedItems?.join(", ") || "추천 종목이 없습니다.";
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif", color: theme.palette.text.primary }}>
       <h1>추천 항목</h1>
       <p>
         <strong>제목:</strong> {title}
