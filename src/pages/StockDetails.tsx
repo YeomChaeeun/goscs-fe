@@ -14,13 +14,7 @@ import {
 } from "@mui/material";
 import Button from "@mui/material/Button";
 import { newsListSelector } from "../recoil/selectors/selector.ts";
-
-interface NewsItem {
-  url: string;
-  title: string;
-  summary: string;
-  wdate: string;
-}
+import {NewsItem} from "../types/news.ts";
 
 const StockDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();

@@ -7,23 +7,6 @@ import { theme } from "../App.tsx";
 import Box from "@mui/material/Box";
 import { Item } from "../styles/box.tsx";
 
-export const assetAllocation = {
-  "Conservative Investor": {
-    Bonds: 80,
-    Cash: 20,
-  },
-  "Moderate Investor": {
-    Stocks: 50,
-    Bonds: 40,
-    Cash: 10,
-  },
-  "Aggressive Investor": {
-    Stocks: 80,
-    Bonds: 15,
-    Cash: 5,
-  },
-};
-
 const Checklist: React.FC = () => {
   const navigate = useNavigate();
   const setAssetStateRecoil = useSetRecoilState(assetState);

@@ -20,13 +20,7 @@ const DefaultLayout = ({ children }: DefaultLayoutProps) => {
             minHeight: '100vh',
             bgcolor: 'background.default',
         }}>
-            <StyledContainer
-                // maxWidth="sm"
-                // sx={{
-                //     bgcolor: 'background.paper',
-                //     minHeight: '100vh',
-                // }}
-            >
+            <StyledContainer>
                 {children}
             </StyledContainer>
         </Box>

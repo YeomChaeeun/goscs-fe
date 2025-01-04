@@ -1,4 +1,3 @@
-// api/index.ts
 import axios from 'axios';
 
 export const API_URL = 'https://goscs-api-server.onrender.com';
