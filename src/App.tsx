@@ -8,6 +8,7 @@ import AssetAllocation from "./pages/AssetAllocation.tsx";
 import Checklist from "./pages/Checklist.tsx";
 import Home from "./pages/Home.tsx";
 import './styles/global.css'
+import ChecklistResult from "./pages/ChecklistResult.tsx";
 
 const themeOptions: ThemeOptions = {
   palette: {
@@ -45,6 +46,10 @@ const App = () => {
             <Route path={"/checklist"} element={<Checklist />} />
             <Route path={"/stockdetail/:id"} element={<StockDetails />} />
             <Route path={"/asset-allocation"} element={<AssetAllocation />} />
+              <Route
+                 path={"/checklist/result"}
+                 element={<ChecklistResult />}
+             />
           </Routes>
         </DefaultLayout>
       </BrowserRouter>

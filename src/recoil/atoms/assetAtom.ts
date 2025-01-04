@@ -1,4 +1,5 @@
 import { atom } from "recoil";
+import {InvestmentProfile} from "../../data/recommendations.ts";
 
 export const assetState = atom({
   key: "assetState",
@@ -9,6 +10,6 @@ export const checklistState = atom({
   key: "checklistState",
   default: {
     scores: [] as number[],
-    profile: null as string | null,
+    profile: null as InvestmentProfile | null,
   },
 });
