@@ -7,11 +7,10 @@ import {assetState, checklistState} from "../../recoil/atoms/assetAtom.ts";
 import {useNavigate} from "react-router-dom";
 
 const FeaturesSection = styled(Box)(({ theme }) => ({
-    minHeight: '80vh',
-    padding: theme.spacing(12, 4),
-    backgroundImage: 'linear-gradient(45deg, #FF6B6B, #c53b2f)',
-    textAlign: 'center',
-    color: 'white',
+    padding: theme.spacing(8, 4),
+    backgroundColor: theme.palette.background.paper,
+    textAlign: "center",
+    color: "white",
 }));
 
 const FeatureCard = styled(Box)(({ theme }) => ({

@@ -1,6 +1,6 @@
 import {styled} from "@mui/material/styles";
 import {Box, Button, Typography} from "@mui/material";
-import {Component} from "react";
+import {useNavigate} from "react-router-dom";
 
 const TradeSection = styled(Box)(({ theme }) => ({
     minHeight: '100vh',
@@ -12,25 +12,27 @@ const TradeSection = styled(Box)(({ theme }) => ({
     justifyContent: 'center',
 }));
 
-class InvestSection extends Component {
-    render() {
-        return <TradeSection>
-            <Typography variant="h3" gutterBottom>
-                Trade on your time and your terms
-            </Typography>
-            <Typography variant="h6" sx={{maxWidth: 600}}>
-                We have 24/7 support. Get real time access to stocks, ETFs and other options.
-            </Typography>
-            <Button
-                variant="contained"
-                color="secondary"
-                size="large"
-                sx={{mt: 4, alignSelf: "flex-start"}}
-            >
-                Get Started
-            </Button>
-        </TradeSection>;
-    }
-}
+const InvestSection = () => {
+    const navigate = useNavigate()
+    return (
+        <TradeSection>
+          <Typography variant="h3" gutterBottom>
+              Trade on your time and your terms
+          </Typography>
+          <Typography variant="h6" sx={{maxWidth: 600}}>
+              We have 24/7 support. Get real time access to stocks, ETFs and other options.
+          </Typography>
+          <Button
+            variant="contained"
+            color="secondary"
+            size="large"
+            sx={{mt: 4, alignSelf: "flex-start"}}
+            onClick={() => navigate('/investment')}
+          >
+              Get Started
+          </Button>
+        </TradeSection>
+    );
+};
 
 export default InvestSection;
