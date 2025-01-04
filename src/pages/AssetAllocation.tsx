@@ -5,8 +5,11 @@ import { checklistState } from "../recoil/atoms/assetAtom";
 import { theme } from "../App.tsx";
 import { Box } from "@mui/material";
 import { Item } from "../styles/box.tsx";
+import {useNavigate} from "react-router-dom";
+import Button from "@mui/material/Button";
 
 const AssetAllocation: React.FC = () => {
+  const navigate = useNavigate();
   const [totalAsset, setTotalAsset] = useState<number | "">("");
 
   const assetStateRecoil = useRecoilValue(checklistState);
@@ -103,13 +106,26 @@ const AssetAllocation: React.FC = () => {
             Enter the total asset amount to display the graph.
           </p>
         )}
+        <br />
 
-        <button
-          onClick={() => window.history.back()}
-          style={{ marginTop: "20px", padding: "10px 20px" }}
+        <Box
+          sx={{
+            display: "flex",
+            justifyContent: "center",
+            marginTop: theme.spacing(2.5),
+            pb: 2,
+          }}
         >
-          Go Back
-        </button>
+          <Button
+            onClick={() => navigate(-1)}
+            variant="contained"
+            sx={{
+              padding: theme.spacing(1.25, 2.5),
+            }}
+          >
+            Go Back
+          </Button>
+        </Box>
       </div>
     </Box>
   );
