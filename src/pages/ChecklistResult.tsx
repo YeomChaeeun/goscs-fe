@@ -4,7 +4,7 @@ import { useRecoilState } from "recoil";
 import { checklistState } from "../recoil/atoms/assetAtom.ts";
 import { assetAllocation } from "./Checklist.tsx";
 import { theme } from "../App.tsx";
-import { Item, Li } from "../styles/box.tsx";
+import { Item, Li, StyledLi, StyledLink } from "../styles/box.tsx";
 
 const ChecklistResult = () => {
   const navigate = useNavigate();
@@ -28,9 +28,11 @@ const ChecklistResult = () => {
             <ul>
               {recommendations[profile].map(
                 (item: { id: number; title: string }) => (
-                  <Li key={item.id}>
-                    <Link to={`/stockdetail/${item.id}`}>{item.title}</Link>
-                  </Li>
+                  <StyledLi key={item.id}>
+                    <StyledLink to={`/stockdetail/${item.id}`}>
+                      {item.title}
+                    </StyledLink>
+                  </StyledLi>
                 )
               )}
             </ul>

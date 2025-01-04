@@ -50,7 +50,7 @@ const AssetAllocation: React.FC = () => {
 
   const formatNumber = (value: number | "") => {
     if (value === "") return "";
-    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","); // 3자리마다 콤마 추가
+    return value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   };
 
   return (
