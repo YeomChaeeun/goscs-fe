@@ -4,10 +4,7 @@ import { styled } from "@mui/material/styles";
 import backgroundImg from "/src/assets/background_img.png";
 
 const HeroSection = styled(Box)(({ theme }) => ({
-  backgroundImage: `
-  linear-gradient(to right, rgba(0, 0, 0, 0.0), rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.0)), 
-  url(${backgroundImg})
-`,
+  backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.8)), url(${backgroundImg})`,
   minHeight: "100vh",
   display: "flex",
   flexDirection: "column",
@@ -15,7 +12,7 @@ const HeroSection = styled(Box)(({ theme }) => ({
   alignItems: "flex-start",
   padding: theme.spacing(4),
   backgroundSize: "cover",
-  backgroundPosition: "calc10% center",
+  backgroundPosition: "center center",
   color: "white",
 }));
 
