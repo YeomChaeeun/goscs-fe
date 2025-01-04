@@ -2,9 +2,12 @@
 import React, { useState } from "react";
 import { questions, InvestmentProfile } from "../data/questions";
 import { recommendations } from "../data/recommendations";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Checklist: React.FC = () => {
+  const navigate = useNavigate();
+  const { id } = useParams<{ id: string }>();
+
   const [scores, setScores] = useState<number[]>(
     Array(questions.length).fill(0)
   );
@@ -119,6 +122,12 @@ const Checklist: React.FC = () => {
               )
             )}
           </ul>
+          <button
+            onClick={() => navigate(`/asset-allocation/${id}`)}
+            style={{ padding: "10px 20px" }}
+          >
+            자산 분배
+          </button>
         </div>
       )}
     </div>

@@ -46,12 +46,6 @@ const StockDetails: React.FC = () => {
         >
           돌아가기
         </button>
-        <button
-          onClick={() => navigate(`/asset-allocation/${id}`)}
-          style={{ padding: "10px 20px" }}
-        >
-          자산 분배
-        </button>
       </div>
     </div>
   );
