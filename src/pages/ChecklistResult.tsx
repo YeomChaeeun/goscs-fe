@@ -5,6 +5,7 @@ import { checklistState } from "../recoil/atoms/assetAtom.ts";
 import { assetAllocation } from "./Checklist.tsx";
 import { theme } from "../App.tsx";
 import { Item, Li, StyledLi, StyledLink } from "../styles/box.tsx";
+import Button from "@mui/material/Button";
 
 const ChecklistResult = () => {
   const navigate = useNavigate();
@@ -49,12 +50,15 @@ const ChecklistResult = () => {
               ))}
             </ul>
           </Item>
-          <button
+          <Button
             onClick={() => navigate(`/asset-allocation`)}
-            style={{ padding: "10px 20px" }}
+            variant="contained"
+            sx={{
+              padding: theme.spacing(1.25, 2.5),
+            }}
           >
             View Asset Allocation
-          </button>
+          </Button>
         </div>
       )}
     </div>
