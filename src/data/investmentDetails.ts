@@ -1,72 +1,72 @@
 export const investmentDetails = [
   {
     id: 1,
-    title: "국채",
+    title: "Government Bonds",
     description:
-      "국가가 돈을 빌리기 위해 발행하는 채권으로, 안정성이 매우 높아 원금 손실 가능성이 낮아 초보자가 안심하고 투자 방법입니다. 안정성이 높은 반면 금리가 낮아 수익률이 제한적일 수 있습니다. 투자 방법은 증권사 계좌나 관련 펀드를 통하여 가능하며 장기 투자에 적합합니다.",
-    recommendedItems: ["한국 국채", "미국 Treasury Bonds"],
+      "Bonds issued by the government to borrow money, which are highly stable with low risk of principal loss. This is a safe investment method for beginners. While it offers high stability, the interest rate is low, which may limit returns. Investments can be made through a brokerage account or related funds and are suitable for long-term investment.",
+    recommendedItems: ["Korean Government Bonds", "US Treasury Bonds"],
   },
   {
     id: 2,
-    title: "회사채",
+    title: "Corporate Bonds",
     description:
-      "지방자치단체가 발행하는 채권으로, 공공시설 같은 프로젝트 자금을 조달하기 위해 발행됩니다.국채보다 조금 더 높은 이자 수익을 기대할 수 있으면서도 안정성이 높은 투자 방법입니다.원금 손실 가능성은 매우 낮지만 가능성이 있어 이 점을 유념해야합니다. 투자 방법은 증권사 계좌를 통해 가능하며 지역 경기 상황에 따라 안정성에 차이가 있을 수 있으니 신뢰도 높은 지역을 선택하세요.",
-    recommendedItems: ["한국 회사채", "미국 회사채"],
+      "Bonds issued by municipalities to raise funds for projects such as public facilities. They offer slightly higher interest income compared to government bonds and are still a stable investment option. While the risk of principal loss is very low, it still exists, so caution is advised. Investments can be made through a brokerage account, and it's essential to choose bonds from trusted regions, as stability can vary depending on the local economy.",
+    recommendedItems: ["Korean Corporate Bonds", "US Corporate Bonds"],
   },
   {
     id: 3,
-    title: "고금리 예금",
+    title: "High-Interest Savings",
     description:
-      "은행이 제공하는 이자가 높은 예금 상품으로, 일정 기간 돈을 맡기면 약속된 이자를 받을 수 있습니다.원금이 보장되고 안정적인 이자 수익을 얻을 수 있어 초보자에게 적합합니다.원금 손실 가능성은 없습니다.은행 방문 또는 모바일 뱅킹 앱을 통해 가입할 수 있습니다.금리가 낮아 큰 수익을 기대하기 어렵고, 중도 해지 시 이자가 줄어들 수 있습니다.",
-    recommendedItems: ["고금리 정기예금", "적금 상품"],
+      "Savings accounts offered by banks with high interest rates. By depositing money for a fixed period, you can earn guaranteed interest. This is a suitable option for beginners, as the principal is secured and provides stable interest income. There is no risk of principal loss. These can be opened by visiting a bank or using mobile banking apps. However, the interest rate may be low, and early withdrawal can result in reduced interest.",
+    recommendedItems: ["High-Interest Fixed Deposits", "Savings Products"],
   },
   {
     id: 4,
-    title: "MMF",
+    title: "Money Market Funds (MMF)",
     description:
-      "단기적으로 안전한 금융 상품에 투자하는 펀드로, 주로 현금처럼 사용할 수 있는 안전한 투자 방법입니다.유동아 필요할 때 쉽게 돈을 인출할 수 있는 장점이 있습니다.원금 손실 가능성은 매우 낮습니다.증권사 계좌에서 MMF 상품을 선택해 투자합니다.금리가 오를 때 이자율이 낮아질 수 있습니다. 단기 자금 운용에 적합합니다.",
-    recommendedItems: ["삼성 MMF", "KB MMF"],
+      "Funds that invest in short-term, safe financial products, often used as a safe and liquid investment. The main advantage is the ability to withdraw money easily when needed. The risk of principal loss is very low. Investments can be made by selecting MMF products through a brokerage account. Interest rates may decrease when market rates rise. This is suitable for short-term cash management.",
+    recommendedItems: ["Samsung MMF", "KB MMF"],
   },
   {
     id: 5,
-    title: "혼합형 펀드",
+    title: "Balanced Funds",
     description:
-      "주식과 채권에 적절히 나눠서 투자하는 펀드로, 안정성과 수익성을 모두 고려한 상품입니다.위험 부담을 줄이면서도 안정적으로 투자 환경을 경험할 수 있어 초보자에게 적합합니다.원금 손실 가능성은 있으나, 주식과 채권 비중에 따라 다릅니다. 투자 방법은 증권사 계좌에서 혼합형 펀드를 검색해 가입하는 방식이며, 비율이 주식 중심인지 채권 중심인지 확인하고 투자 목적에 맞는 상품을 선택해야합니다.",
-    recommendedItems: ["삼성 혼합형 펀드", "미래에셋 밸런스 펀드"],
+      "Funds that invest in a mix of stocks and bonds, considering both stability and profitability. This is a suitable option for beginners, as it reduces risk while offering a stable investment environment. The risk of principal loss exists but depends on the allocation between stocks and bonds. Investments can be made by searching for balanced funds in a brokerage account, and it is essential to check whether the fund focuses more on stocks or bonds to match your investment objectives.",
+    recommendedItems: ["Samsung Balanced Fund", "Mirae Asset Balance Fund"],
   },
   {
     id: 6,
-    title: "배당주",
+    title: "Dividend Stocks",
     description:
-      "기업의 수익 일부를 주주들에게 나눠주는 주식으로, 주가 상승과 배당금을 동시에 기대할 수 있습니다.안정적인 기업의 주식을 선택하면 리스크를 줄이면서 정기적인 수익을 얻을 수 있습니다. 다만, 원금 손실 가능성이 있어 신중하게 투자를 판단해야 합니다. 투자 방법은 증권사 계좌에서 배당주를 검색하여 매매하는 방식이고, 배당률이 높더라도 기업의 안정성을 반드시 확인해야 합니다.",
-    recommendedItems: ["코카콜라", "SK텔레콤", "SCHD ETF"],
+      "Stocks that distribute a portion of the company's profits to shareholders. They offer the potential for both stock price appreciation and dividend income. Selecting stocks from stable companies can reduce risks while providing regular income. However, there is a risk of principal loss, so careful consideration is necessary. Investments can be made by searching for dividend stocks in a brokerage account, and it's essential to confirm the stability of the company even if the dividend yield is high.",
+    recommendedItems: ["Coca-Cola", "SK Telecom", "SCHD ETF"],
   },
   {
     id: 7,
     title: "REITs",
     description:
-      "부동산에 투자하는 회사에 돈을 맡기고, 부동산에서 발생하는 수익을 배당금으로 받는 상품입니다.소액으로 부동산에 투자할 수 있어 꾸준한 현금 흐름을 기대할 수 있습니다. 다만, 원금 손실 가능성이 있어 신중하게 투자를 판단 해야합니다. 투자 방법은 증권사 계좌에서 REITs 상품을 검색하거나 주식처럼 거래하는 방식이고, 부동산 시장 경기와 연관이 크므로 경기 변동을 주의해야 합니다.",
-    recommendedItems: ["신한 알파리츠", "삼성 S-REITs"],
+      "Investing in companies that manage real estate, earning returns from rental income and property sales. This allows small-scale real estate investment with a steady cash flow. However, there is a risk of principal loss, so careful judgment is necessary. Investments can be made by searching for REITs in a brokerage account or trading them like stocks. Since REITs are closely tied to the real estate market, be cautious of market fluctuations.",
+    recommendedItems: ["Shinhan Alpha REITs", "Samsung S-REITs"],
   },
   {
     id: 8,
-    title: "성장주",
+    title: "Growth Stocks",
     description:
-      "빠르게 성장할 가능성이 높은 기업의 주식으로, 주로 기술 혁신을 이끄는 회사들이 많습니다. 장기적으로 큰 수익을 얻고 싶다면 적은 금액으로 시작해 볼 수 있는 좋은 선택지입니다. 다만, 경제 상황이나 회사 오너의 가십 등의 원인으로 주가가 흔들릴 수 있어, 원금 손실 가능성이 매우 높습니다. 투자 방법은 증권사 계좌에서 성장주를 검색해 거래하는 방식이고, 높은 성장 가능성에 반해 리스크도 크므로 분산 투자가 필요합니다.",
-    recommendedItems: ["테슬라", "애플", "엔비디아"],
+      "Stocks of companies with high growth potential, often leading technological innovations. If you want to achieve significant returns over the long term, starting with a small amount can be a good choice. However, stock prices can fluctuate due to economic conditions or company-related news, posing a high risk of principal loss. Investments can be made by searching for growth stocks in a brokerage account. Although the potential for growth is high, so are the risks, so diversification is essential.",
+    recommendedItems: ["Tesla", "Apple", "Nvidia"],
   },
   {
     id: 9,
-    title: "레버리지 ETF",
+    title: "Leveraged ETFs",
     description:
-      "주가 상승이나 하락을 두 배, 세 배로 따라가도록 설계된 투자 상품입니다. 시장 공부하고 단기적으로 높은 수익을 추구할 때 유용합니다. 또한, 일반 주식보다 원금 손실 가능성이 매우 높습니다. 투자 방식은 증권사 계좌에서 레버리지 ETF를 검색해 매매가 가능하며, 단기 투자에 적합합니다. 큰 욕심으로 장기적으로 가져갔다가 큰 손실을 볼 수 있으니 자신만의 목표 단가를 설정해 놓고 매도를 진행하는 방식을 추천합니다.",
+      "Investment products designed to amplify market movements two or three times, whether up or down. These are useful for studying the market and pursuing short-term high returns. However, the risk of principal loss is very high compared to regular stocks. Investments can be made by searching for leveraged ETFs in a brokerage account. They are suitable for short-term investments, and it's recommended to set personal target prices and sell accordingly to avoid significant losses from long-term holding.",
     recommendedItems: ["TQQQ", "SOXL", "SPXL"],
   },
   {
     id: 10,
-    title: "암호화폐",
+    title: "Cryptocurrencies",
     description:
-      "블록체인 기술을 기반으로 한 디지털 화폐로, 중앙은행이 아닌 네트워크에서 거래됩니다. 장기적으로 큰 성장 가능성을 가지고 있어 새로운 형태의 투자에 관심 있는 초보자에게 적합합니다. 다만, 다른 투자 방식에 비해 실시간 매매가 가능하고 원금 손실 가능성도 매우 높아 주의가 필요합니다. 투자 방법은 암호화폐 거래소에 가입하고 원하는 암호화폐를 구매하는 방식이고, 변동성이 매우 크기 때문에 투자 전에 철저한 조사가 필요합니다.",
-    recommendedItems: ["비트코인", "이더리움", "도지코인"],
+      "Digital currencies based on blockchain technology that operate on decentralized networks rather than central banks. They hold great long-term growth potential and are suitable for beginners interested in new forms of investment. However, compared to other investment methods, cryptocurrencies are highly volatile, and there is a high risk of principal loss. Investments can be made by signing up for a cryptocurrency exchange and purchasing desired cryptocurrencies. Due to the extreme volatility, thorough research is essential before investing.",
+    recommendedItems: ["Bitcoin", "Ethereum", "Dogecoin"],
   },
 ];
