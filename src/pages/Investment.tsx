@@ -5,6 +5,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import { API_URL } from "../services";
 import {stockList} from "../data/stockList.ts";
+import {CircularProgress} from "@mui/material";
 
 const InvestmentSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
@@ -14,9 +15,11 @@ const InvestmentSection = styled(Box)(({ theme }) => ({
 
 const Investment = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>(["QQQ", "SPY"]);
+  const [isLoading, setIsLoading] = useState(true);
 
   const handleChange = (event: any, newValue: any) => {
     if (newValue.length <= 2) {
+      if(newValue.length === 2) setIsLoading(true)
       setSelectedItems(newValue.map((item: any) => item.id));
     }
   };
@@ -46,13 +49,25 @@ const Investment = () => {
       />
       <br />
       {selectedItems.length === 2 && (
-        <img
-          src={`${API_URL}/api/adjusted_close_graph?item_code_list=${selectedItems.join(
-            ","
-          )}`}
-          alt="Preview image"
-          style={{ width: "100%", maxWidth: "600px" }}
-        />
+        <Box sx={{ position: 'relative' }}>
+          {isLoading && (
+            <Box sx={{
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              minHeight: '200px',
+            }}>
+              <CircularProgress />
+            </Box>
+          )}
+          <img
+            src={`${API_URL}/api/adjusted_close_graph?item_code_list=${selectedItems.join(',')}`}
+            alt="Preview image"
+            style={{ width: "100%", maxWidth: "600px" }}
+            onLoad={() => setIsLoading(false)}
+            onError={() => setIsLoading(false)}
+          />
+        </Box>
       )}
     </InvestmentSection>
   );
