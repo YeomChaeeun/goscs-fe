@@ -12,6 +12,7 @@ const Checklist: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [missingQuestions, setMissingQuestions] = useState<number[]>([]);
 
+  console.log(profile + "성향");
   const assetAllocation = {
     "안전형 투자자": {
       채권: 80,
@@ -33,8 +34,8 @@ const Checklist: React.FC = () => {
     const updatedScores = [...scores];
     updatedScores[questionId - 1] = value;
     setScores(updatedScores);
-    setError(null); // 선택 시 에러 메시지 초기화
-    setMissingQuestions([]); // 선택 시 누락 항목 초기화
+    setError(null);
+    setMissingQuestions([]);
   };
 
   const calculateProfile = () => {
