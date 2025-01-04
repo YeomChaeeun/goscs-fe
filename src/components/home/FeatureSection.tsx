@@ -64,6 +64,7 @@ const FeatureSection = () => {
             (profile) => {
               return (
                 <FeatureCard
+                  key={profile}
                   onClick={() => {
                     handleSelectProfile(profile);
                   }}
