@@ -1,7 +1,8 @@
-// 투자 성향 체크리스트를 기반으로 투자 성향 도출 기능 구현
 import React, { useState } from "react";
-import { questions, InvestmentProfile } from "../data/questions";
+import { InvestmentProfile, questions } from "../data/questions";
 import { recommendations } from "../data/recommendations";
+import { useSetRecoilState } from "recoil";
+import { assetState } from "../recoil/atoms/assetAtom";
 import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Checklist: React.FC = () => {
@@ -14,6 +15,7 @@ const Checklist: React.FC = () => {
   const [profile, setProfile] = useState<InvestmentProfile | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [missingQuestions, setMissingQuestions] = useState<number[]>([]);
+  const setAssetStateRecoil = useSetRecoilState(assetState);
 
   const assetAllocation = {
     "안전형 투자자": {
@@ -61,6 +63,7 @@ const Checklist: React.FC = () => {
     } else {
       determinedProfile = "공격형 투자자";
     }
+    setAssetStateRecoil(determinedProfile);
     setProfile(determinedProfile);
   };
 

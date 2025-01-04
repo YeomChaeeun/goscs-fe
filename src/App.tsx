@@ -43,10 +43,7 @@ const App = () => {
             <Route path={"/"} element={<Home />} />
             <Route path={"/checklist"} element={<Checklist />} />
             <Route path={"/stockdetail/:id"} element={<StockDetails />} />
-            <Route
-              path={"/asset-allocation/:id"}
-              element={<AssetAllocation />}
-            />
+            <Route path={"/asset-allocation"} element={<AssetAllocation />} />
           </Routes>
         </DefaultLayout>
       </BrowserRouter>
