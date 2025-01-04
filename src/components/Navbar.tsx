@@ -13,7 +13,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import {useNavigate} from "react-router-dom";
 import logoImage from '/src/assets/logo_finfit_w.png';
 
-const pages = ['Home', 'CheckList', 'Investment'];
+const pages = ['Home', 'CheckList'];
 // const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
@@ -120,25 +120,27 @@ function Navbar() {
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href="#app-bar-with-responsive-menu"
+                    {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
+                    {/*<Typography*/}
+                    {/*    variant="h5"*/}
+                    {/*    noWrap*/}
+                    {/*    component="a"*/}
+                    {/*    href="/"*/}
+                    {/*>*/}
+                    {/*    LOGO*/}
+                    {/*</Typography>*/}
+                    <Box
+                        component="img"
+                        src={logoImage}  // 이미지 경로 지정
                         sx={{
-                            mr: 2,
-                            display: { xs: 'flex', md: 'none' },
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
+                            maxWidth: '100px',
+                            maxHeight: '40px',
+                            display: { xs: 'block', md: 'none' }, // flex 대신 block 사용
+                            margin: '0 auto',  // 가운데 정렬을 위해 추가
                         }}
-                    >
-                        LOGO
-                    </Typography>
+                        alt="logo"
+                    />
+
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
