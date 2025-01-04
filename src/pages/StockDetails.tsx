@@ -1,27 +1,58 @@
 import React from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+import { recommendations } from "../data/recommendations";
+import { investmentDetails } from "../data/investmentDetails";
 
 const StockDetails: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { title } = useParams<{ title: string }>();
+  const navigate = useNavigate();
 
-  console.log(title);
-  const details = {
-    주식: "주식은 기업의 지분을 나타내며, 미국 주식과 한국 주식이 있습니다. 한국 주식은 KOSPI, KOSDAQ 시장에서 거래되며, 미국 주식은 NYSE, NASDAQ에서 거래됩니다. 주식 시장은 각각 한국: 09:00~15:30, 미국: 09:30~16:00(현지 시간) 운영됩니다.",
-    채권: "채권은 정부나 기업이 자금을 조달하기 위해 발행하는 고정 수익 증권입니다.",
-    현금: "현금은 유동성과 안정성이 높은 자산으로, 단기적 필요 자금으로 적합합니다.",
+  const findTitleById = (id: string) => {
+    const allRecommendations = Object.values(recommendations).flatMap(
+      (items) => items
+    );
+    const matchedItem = allRecommendations.find(
+      (item) => item.id.toString() === id
+    );
+    return matchedItem ? matchedItem.title : "해당 항목을 찾을 수 없습니다.";
   };
+
+  if (!id) {
+    return (
+      <p style={{ color: "red", padding: "20px" }}>ID가 제공되지 않았습니다.</p>
+    );
+  }
+
+  const title = findTitleById(id);
+  const investment = investmentDetails.find((item) => item.title === title);
+  const recommendedItems =
+    investment?.recommendedItems?.join(", ") || "추천 종목이 없습니다.";
 
   return (
     <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <h1>{id}</h1>
-      <p>{details["주식"] || "해당 항목에 대한 설명이 없습니다."}</p>
-      <button
-        onClick={() => window.history.back()}
-        style={{ marginTop: "20px", padding: "10px 20px" }}
-      >
-        돌아가기
-      </button>
+      <h1>추천 항목</h1>
+      <p>
+        <strong>제목:</strong> {title}
+      </p>
+      <p>
+        <strong>설명:</strong> {investment?.description || "설명이 없습니다."}
+      </p>
+      <h2>추천 종목</h2>
+      <p>{recommendedItems}</p>
+      <div style={{ marginTop: "20px" }}>
+        <button
+          onClick={() => navigate(-1)}
+          style={{ marginRight: "10px", padding: "10px 20px" }}
+        >
+          돌아가기
+        </button>
+        <button
+          onClick={() => navigate(`/asset-allocation/${id}`)}
+          style={{ padding: "10px 20px" }}
+        >
+          자산 분배
+        </button>
+      </div>
     </div>
   );
 };
