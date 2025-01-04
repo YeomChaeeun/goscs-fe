@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 import MainSection from "../components/home/MainSection.tsx";
-import InvestSection from "../components/home/InvestSection.tsx";
 import FeatureSection from "../components/home/FeatureSection.tsx";
-import { useResetRecoilState } from "recoil";
-import { checklistState } from "../recoil/atoms/assetAtom.ts";
+import {useResetRecoilState} from "recoil";
+import {checklistState} from "../recoil/atoms/assetAtom.ts";
 
 const Home = () => {
   const resetList = useResetRecoilState(checklistState);
@@ -20,7 +19,7 @@ const Home = () => {
       />
 
       {/* Invest Section */}
-      <InvestSection />
+      {/*<InvestSection />*/}
 
       {/* Features Section */}
       <FeatureSection />
