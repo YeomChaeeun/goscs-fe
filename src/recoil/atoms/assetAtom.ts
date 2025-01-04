@@ -13,3 +13,8 @@ export const checklistState = atom({
     profile: null as InvestmentProfile | null,
   },
 });
+
+export const newsLoadingState = atom({
+  key: 'newsLoadingState',
+  default: true
+});
