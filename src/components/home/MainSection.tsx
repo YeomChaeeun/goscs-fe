@@ -23,8 +23,27 @@ class MainSection extends Component<{ onClick: () => void | Promise<void> }> {
         <Typography variant="h3" gutterBottom>
           Personalized Investment Solutions
         </Typography>
-        <Typography variant="h5" gutterBottom sx={{ maxWidth: 600 }}>
-          Easy and Fast
+        <Typography
+          variant="h5"
+          gutterBottom
+          sx={{ maxWidth: 600, lineHeight: 1.7 }}
+        >
+          Discover your perfect investment strategy with{" "}
+          <span style={{ textDecoration: "underline" }}>
+            <strong>FinFit!</strong>
+          </span>{" "}
+          <br />
+          We simplify investing for{" "}
+          <span style={{ textDecoration: "underline" }}>
+            <strong>beginners</strong>
+          </span>{" "}
+          by analyzing your style and recommending tailored strategies with
+          stocks. <br />
+          Start your
+          <span style={{ textDecoration: "underline" }}>
+            <strong> smarter investing journey</strong>
+          </span>{" "}
+          with us!
         </Typography>
         <Button
           variant="contained"
