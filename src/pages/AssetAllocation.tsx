@@ -1,16 +1,13 @@
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
-import { investmentDetails } from "../data/investmentDetails";
 import { Chart } from "react-google-charts";
 import { useRecoilValue } from "recoil";
-import { assetState } from "../recoil/atoms/assetAtom";
+import { checklistState } from "../recoil/atoms/assetAtom";
+import { theme } from "../App.tsx";
 
 const AssetAllocation: React.FC = () => {
-  const { id } = useParams<{ id: string }>();
   const [totalAsset, setTotalAsset] = useState<number>(0);
 
-  const assetStateRecoil = useRecoilValue(assetState);
-  const investment = investmentDetails.find((item) => item.title === id);
+  const assetStateRecoil = useRecoilValue(checklistState);
 
   const allocation = {
     "안전형 투자자": { 채권: 80, 예금: 20 },
@@ -18,9 +15,7 @@ const AssetAllocation: React.FC = () => {
     "공격형 투자자": { 주식: 60, 레버리지: 30, 암호화폐: 10 },
   };
 
-  const profileType = assetStateRecoil;
-  console.log(profileType + "투자성향");
-
+  const profileType = assetStateRecoil.profile;
   if (!profileType) {
     return <p>투자 성향이 선택되지 않았습니다. 이전 페이지로 돌아가 주세요</p>;
   }
@@ -41,8 +36,14 @@ const AssetAllocation: React.FC = () => {
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
-      <h1>{investment?.title} 자산 분배</h1>
+    <div
+      style={{
+        padding: "20px",
+        fontFamily: "Arial, sans-serif",
+        color: theme.palette.text.primary,
+      }}
+    >
+      <h1>{profileType}의 자산 분배 예시</h1>
       <p>투자 성향에 따라 자산을 아래 비율로 분배합니다:</p>
 
       <input

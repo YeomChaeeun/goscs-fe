@@ -1,55 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
+import { useRecoilState } from "recoil";
+import { checklistState } from "../recoil/atoms/assetAtom";
 import { InvestmentProfile, questions } from "../data/questions";
 import { recommendations } from "../data/recommendations";
-import { useSetRecoilState } from "recoil";
-import { assetState } from "../recoil/atoms/assetAtom";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { theme } from "../App.tsx";
 
 const Checklist: React.FC = () => {
   const navigate = useNavigate();
-  const { id } = useParams<{ id: string }>();
 
-  const [scores, setScores] = useState<number[]>(
-    Array(questions.length).fill(0)
-  );
-  const [profile, setProfile] = useState<InvestmentProfile | null>(null);
-  const [error, setError] = useState<string | null>(null);
-  const [missingQuestions, setMissingQuestions] = useState<number[]>([]);
-  const setAssetStateRecoil = useSetRecoilState(assetState);
-
-  const assetAllocation = {
-    "안전형 투자자": {
-      채권: 80,
-      현금: 20,
-    },
-    "균형형 투자자": {
-      주식: 50,
-      채권: 40,
-      현금: 10,
-    },
-    "공격형 투자자": {
-      주식: 80,
-      채권: 15,
-      현금: 5,
-    },
-  };
+  const [state, setState] = useRecoilState(checklistState);
+  const { scores, profile } = state;
 
   const handleOptionChange = (questionId: number, value: number) => {
     const updatedScores = [...scores];
     updatedScores[questionId - 1] = value;
-    setScores(updatedScores);
-    setError(null);
-    setMissingQuestions([]);
+    setState((prev) => ({ ...prev, scores: updatedScores }));
   };
 
   const calculateProfile = () => {
-    const missing = scores
+    const missingQuestions = scores
       .map((score, index) => (score === 0 ? index + 1 : null))
-      .filter((item) => item !== null) as number[];
+      .filter((item) => item !== null);
 
-    if (missing.length > 0) {
-      setError("모든 항목을 선택해야 결과를 확인할 수 있습니다.");
-      setMissingQuestions(missing);
+    if (missingQuestions.length > 0) {
+      alert(`모든 항목에 응답해주세요: ${missingQuestions.join(", ")}`);
       return;
     }
 
@@ -63,12 +38,18 @@ const Checklist: React.FC = () => {
     } else {
       determinedProfile = "공격형 투자자";
     }
-    setAssetStateRecoil(determinedProfile);
-    setProfile(determinedProfile);
+
+    setState((prev) => ({ ...prev, profile: determinedProfile }));
   };
 
   return (
-    <div style={{ padding: "20px", fontFamily: "Arial, sans-serif" }}>
+    <div
+      style={{
+        padding: "20px",
+        fontFamily: "Arial, sans-serif",
+        color: theme.palette.text.primary,
+      }}
+    >
       <h1>투자 성향 체크리스트</h1>
       {questions.map((question) => (
         <div key={question.id} style={{ marginBottom: "20px" }}>
@@ -80,6 +61,7 @@ const Checklist: React.FC = () => {
                   type="radio"
                   name={`question-${question.id}`}
                   value={option.value}
+                  checked={scores[question.id - 1] === option.value}
                   onChange={() => handleOptionChange(question.id, option.value)}
                 />
                 {option.label}
@@ -88,50 +70,29 @@ const Checklist: React.FC = () => {
           ))}
         </div>
       ))}
-      {error && (
-        <div style={{ color: "red", marginBottom: "20px" }}>
-          {error}
-          {missingQuestions.length > 0 && (
-            <p>선택되지 않은 항목: {missingQuestions.join(", ")}</p>
-          )}
-        </div>
-      )}
-      <button
-        onClick={calculateProfile}
-        style={{ marginTop: "20px", padding: "10px 20px" }}
-      >
+      <button onClick={calculateProfile} style={{ marginTop: "20px" }}>
         투자 성향 확인
       </button>
       {profile && (
-        <div
-          style={{ marginTop: "20px", fontSize: "18px", fontWeight: "bold" }}
-        >
-          <p>당신의 투자 성향은: {profile}</p>
+        <div>
+          <p>투자 성향 결과 : {profile}</p>
           <h2>추천 종목</h2>
           <ul>
-            {recommendations[profile].map((item) => (
+            {recommendations[profile as InvestmentProfile].map((item) => (
               <li key={item.id}>
                 <Link to={`/stockdetail/${item.id}`}>{item.title}</Link>
               </li>
             ))}
           </ul>
-          <h2>자산 분배 추천</h2>
-          <ul>
-            {Object.entries(assetAllocation[profile]).map(
-              ([asset, percentage]) => (
-                <li key={asset}>
-                  {asset}: {percentage}%
-                </li>
-              )
-            )}
-          </ul>
-          <button
-            onClick={() => navigate(`/asset-allocation/${id}`)}
-            style={{ padding: "10px 20px" }}
-          >
-            자산 분배
-          </button>
         </div>
+      )}
+      {profile && (
+        <button
+          onClick={() => navigate(`/asset-allocation`)}
+          style={{ padding: "10px 20px" }}
+        >
+          자산 분배
+        </button>
       )}
     </div>
   );
