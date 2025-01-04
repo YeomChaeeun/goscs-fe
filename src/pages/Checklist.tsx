@@ -8,37 +8,21 @@ import Box from "@mui/material/Box";
 import { Item } from "../styles/box.tsx";
 
 export const assetAllocation = {
-  "안전형 투자자": {
-    채권: 80,
-    현금: 20,
+  "Conservative Investor": {
+    Bonds: 80,
+    Cash: 20,
   },
-  "위험중립형 투자자": {
-    주식: 50,
-    채권: 40,
-    현금: 10,
+  "Moderate Investor": {
+    Stocks: 50,
+    Bonds: 40,
+    Cash: 10,
   },
-  "공격형 투자자": {
-    주식: 80,
-    채권: 15,
-    현금: 5,
+  "Aggressive Investor": {
+    Stocks: 80,
+    Bonds: 15,
+    Cash: 5,
   },
 };
-
-// function Item(props: BoxProps) {
-//   const { ...other } = props;
-//   return (
-//     <Box
-//       sx={[
-//         {
-//           padding: "10px",
-//           marginBottom: "20px",
-//           boxShadow: "0 2px 4px rgba(0, 0, 0, 0.1)",
-//         },
-//       ]}
-//       {...other}
-//     />
-//   );
-// }
 
 const Checklist: React.FC = () => {
   const navigate = useNavigate();
@@ -66,11 +50,11 @@ const Checklist: React.FC = () => {
 
     let determinedProfile: InvestmentProfile;
     if (totalScore <= 40) {
-      determinedProfile = "안전형 투자자";
+      determinedProfile = "Conservative Investor";
     } else if (totalScore <= 80) {
-      determinedProfile = "위험중립형 투자자";
+      determinedProfile = "Moderate Investor";
     } else {
-      determinedProfile = "공격형 투자자";
+      determinedProfile = "Aggressive Investor";
     }
 
     setState((prev) => ({ ...prev, profile: determinedProfile }));
@@ -97,7 +81,7 @@ const Checklist: React.FC = () => {
         }}
       >
         <Item>
-          <h1>투자 성향 체크리스트</h1>
+          <h1>Investment Profile Checklist</h1>
         </Item>
         <div style={{ marginBottom: "20px" }}>
           <Item>

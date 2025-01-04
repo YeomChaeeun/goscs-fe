@@ -12,9 +12,9 @@ const AssetAllocation: React.FC = () => {
   const assetStateRecoil = useRecoilValue(checklistState);
 
   const allocation = {
-    "안전형 투자자": { 채권: 80, 예금: 20 },
-    "위험중립형 투자자": { 채권: 40, 주식: 40, REITs: 20 },
-    "공격형 투자자": { 주식: 60, 레버리지: 30, 암호화폐: 10 },
+    "Conservative Investor": { Bonds: 80, Savings: 20 },
+    "Moderate Investor": { Bonds: 40, Stocks: 40, REITs: 20 },
+    "Aggressive Investor": { Stocks: 60, Leverage: 30, Cryptocurrency: 10 },
   };
 
   useEffect(() => {}, [totalAsset]);
@@ -30,7 +30,11 @@ const AssetAllocation: React.FC = () => {
 
   const profileType = assetStateRecoil.profile;
   if (!profileType) {
-    return <p>투자 성향이 선택되지 않았습니다. 이전 페이지로 돌아가 주세요</p>;
+    return (
+      <p>
+        Investment profile is not selected. Please go back to the previous page.
+      </p>
+    );
   }
   const percentages = allocation[profileType as keyof typeof allocation];
 
@@ -43,7 +47,7 @@ const AssetAllocation: React.FC = () => {
   ];
 
   const options = {
-    title: "자산 분배",
+    title: "Asset Allocation",
     pieHole: 0.4,
     slices: [{ offset: 0.1 }],
   };
@@ -70,16 +74,19 @@ const AssetAllocation: React.FC = () => {
         }}
       >
         <Item>
-          <h1>{profileType}의 자산 분배 예시</h1>
+          <h1>Asset Allocation Example for {profileType}</h1>
         </Item>
         <Item>
-          <p>투자 성향에 따라 자산을 아래 비율로 분배합니다:</p>
+          <p>
+            Assets are distributed according to the following percentages based
+            on your investment profile:
+          </p>
         </Item>
         <input
           type="text"
           value={formatNumber(totalAsset ? Number(totalAsset) : "")}
           onChange={handleInputChange}
-          placeholder="총 자산 입력 (₩)"
+          placeholder="Enter total assets (₩)"
           style={{ marginBottom: "20px", padding: "10px", width: "300px" }}
         />
 
@@ -93,7 +100,7 @@ const AssetAllocation: React.FC = () => {
           />
         ) : (
           <p style={{ color: "red" }}>
-            총 자산 금액을 입력하면 그래프가 표시됩니다.
+            Enter the total asset amount to display the graph.
           </p>
         )}
 
@@ -101,7 +108,7 @@ const AssetAllocation: React.FC = () => {
           onClick={() => window.history.back()}
           style={{ marginTop: "20px", padding: "10px 20px" }}
         >
-          돌아가기
+          Go Back
         </button>
       </div>
     </Box>
