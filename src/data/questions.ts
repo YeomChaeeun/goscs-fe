@@ -1,6 +1,6 @@
 export type InvestmentProfile =
   | "안전형 투자자"
-  | "균형형 투자자"
+  | "위험중립형 투자자"
   | "공격형 투자자";
 
 export type Question = {
