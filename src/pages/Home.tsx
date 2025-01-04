@@ -1,18 +1,21 @@
-import {Button} from "@mui/material";
-import {Link, useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
+import MainSection from '../components/home/MainSection.tsx'
+import InvestSection from "../components/home/InvestSection.tsx";
+import FeatureSection from "../components/home/FeatureSection.tsx";
 
 const Home = () => {
     const navigate = useNavigate()
-    const guideList = [1, 2, 3, 4];
     return (
-        <div>
-            <h1>Home</h1>
-            <Button onClick={() => navigate('/checklist')}>투자성향 파악하기</Button>
-            <br />
-            {guideList.map((value) => {
-                return <Link to={`/guide/${value}`} style={{display:"block"}}>가이드 {value}</Link>
-            })}
-        </div>
+        <>
+            {/* Main Section */}
+            <MainSection onClick={() => navigate('/checklist')}/>
+
+            {/* Invest Section */}
+            <InvestSection/>
+
+            {/* Features Section */}
+            <FeatureSection/>
+        </>
     );
 };
 
