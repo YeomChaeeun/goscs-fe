@@ -28,7 +28,6 @@ const themeOptions: ThemeOptions = {
       primary: "rgba(255,255,255,0.87)",
       secondary: "rgba(234,233,233,0.6)",
       disabled: "rgba(232,232,232,0.38)",
-      // hint: '#dd4d3a',
     },
     divider: "rgba(148,146,146,0.12)",
   },

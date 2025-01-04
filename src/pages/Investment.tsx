@@ -1,27 +1,16 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
-import Autocomplete from "@mui/material/Autocomplete";
-import TextField from "@mui/material/TextField";
+import Autocomplete from '@mui/material/Autocomplete';
+import TextField from '@mui/material/TextField';
 import { API_URL } from "../services";
+import {stockList} from "../data/stockList.ts";
 
 const InvestmentSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(4),
   textAlign: "center",
   color: "white",
 }));
-
-// 선택 가능한 옵션들
-const options = [
-  { label: "QQQ", id: "QQQ" },
-  { label: "SPY", id: "SPY" },
-  { label: "Apple", id: "AAPL" },
-  { label: "NVIDIA", id: "NVDA" },
-  { label: "Alphabet A", id: "GOOGL" },
-  { label: "Tesla", id: "TSLA" },
-  { label: "ASML", id: "ASML" },
-  { label: "Intel", id: "INTC" },
-];
 
 const Investment = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>(["QQQ", "SPY"]);
@@ -36,8 +25,8 @@ const Investment = () => {
     <InvestmentSection>
       <Autocomplete
         multiple
-        options={options}
-        value={options.filter((option) => selectedItems.includes(option.id))}
+        options={stockList}
+        value={stockList.filter(option => selectedItems.includes(option.id))}
         onChange={handleChange}
         getOptionLabel={(option) => option.label}
         renderInput={(params) => (
