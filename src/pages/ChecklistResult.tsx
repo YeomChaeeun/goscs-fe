@@ -1,15 +1,15 @@
-import { recommendations } from "../data/recommendations.ts";
-import { useNavigate } from "react-router-dom";
-import { useRecoilState } from "recoil";
-import { checklistState } from "../recoil/atoms/assetAtom.ts";
-import { assetAllocation } from "./Checklist.tsx";
-import { theme } from "../App.tsx";
-import { Item, Li, StyledLi, StyledLink } from "../styles/box.tsx";
+import {recommendations} from "../data/recommendations.ts";
+import {useNavigate} from "react-router-dom";
+import {useRecoilValue} from "recoil";
+import {checklistState} from "../recoil/atoms/assetAtom.ts";
+import {assetAllocation} from "./Checklist.tsx";
+import {theme} from "../App.tsx";
+import {Item, Li, StyledLi, StyledLink} from "../styles/box.tsx";
 import Button from "@mui/material/Button";
 
 const ChecklistResult = () => {
   const navigate = useNavigate();
-  const [state] = useRecoilState(checklistState);
+  const state = useRecoilValue(checklistState);
   const { profile } = state;
   return (
     <div style={{ display: "flex", justifyContent: "center" }}>

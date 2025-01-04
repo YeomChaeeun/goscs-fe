@@ -11,9 +11,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    return () => {
-      resetList();
-    }
+    resetList();
   }, []);
 
   return (
