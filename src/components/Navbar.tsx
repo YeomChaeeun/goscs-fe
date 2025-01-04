@@ -34,14 +34,6 @@ function Navbar() {
   //     setAnchorElNav(null);
   // };
 
-  const handleCloseNavMenu = (path: string = "") => {
-    setAnchorElNav(null);
-    if (path) {
-      const navigatePath = path === "Home" ? "/" : `/${path.toLowerCase()}`;
-      navigate(navigatePath);
-    }
-  };
-
   // const handleCloseUserMenu = () => {
   //     setAnchorElUser(null);
   // };
