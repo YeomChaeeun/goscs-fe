@@ -7,6 +7,7 @@ const FeaturesSection = styled(Box)(({ theme }) => ({
     padding: theme.spacing(8, 4),
     backgroundColor: theme.palette.background.paper,
     textAlign: 'center',
+    color: 'white',
 }));
 
 const FeatureCard = styled(Box)(({ theme }) => ({
@@ -19,6 +20,7 @@ const FeatureCard = styled(Box)(({ theme }) => ({
     flexDirection: 'column',
     alignItems: 'center',
     justifyContent: 'center',
+    color: 'black',
 }));
 
 class FeatureSection extends Component {

@@ -12,6 +12,7 @@ const HeroSection = styled(Box)(({ theme }) => ({
     backgroundImage: 'linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.7))',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
+    color: 'white',
 }));
 
 class MainSection extends Component<{ onClick: () => void | Promise<void> }> {

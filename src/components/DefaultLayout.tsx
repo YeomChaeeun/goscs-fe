@@ -12,9 +12,6 @@ const StyledContainer = styled(Container)(({ theme }) => ({
         margin: 0,
         maxWidth: 'none !important'
     },
-    '& .MuiTypography-root': {  // 모든 Typography에 적용
-        color: theme.palette.text.primary,
-    }
 }));
 
 const DefaultLayout = ({ children }: DefaultLayoutProps) => {
