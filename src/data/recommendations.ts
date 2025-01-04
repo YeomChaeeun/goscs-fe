@@ -9,7 +9,7 @@ export const recommendations: Record<
 > = {
   "안전형 투자자": [
     { id: 1, title: "국채" },
-    { id: 2, title: "지방채" },
+    { id: 2, title: "회사채" },
     { id: 3, title: "고금리 예금" },
     { id: 4, title: "MMF" },
   ],
