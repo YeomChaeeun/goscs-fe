@@ -5,8 +5,8 @@ import { createTheme, ThemeProvider } from "@mui/material";
 import Navbar from "./components/Navbar.tsx";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AssetAllocation from "./pages/AssetAllocation.tsx";
-import { Home } from "@mui/icons-material";
 import Checklist from "./pages/Checklist.tsx";
+import Home from "./pages/Home.tsx";
 
 const themeOptions: ThemeOptions = {
   palette: {
