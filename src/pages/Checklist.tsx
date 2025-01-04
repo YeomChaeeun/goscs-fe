@@ -105,7 +105,7 @@ const Checklist: React.FC = () => {
           <ul>
             {recommendations[profile].map((item) => (
               <li key={item.id}>
-                <Link to={`/details/${item.id}`}>{item.title}</Link>
+                <Link to={`/stockdetail/${item.id}`}>{item.title}</Link>
               </li>
             ))}
           </ul>
