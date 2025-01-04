@@ -27,7 +27,6 @@ function Navbar() {
   const handleCloseNavMenu = (path: string = "") => {
     setAnchorElNav(null);
     if (path) {
-      // 경로가 'Home'인 경우 '/'로 변경, 그 외에는 소문자로 변환
       const navigatePath = path === "Home" ? "/" : `/${path.toLowerCase()}`;
       navigate(navigatePath);
     }
@@ -36,25 +35,25 @@ function Navbar() {
   return (
     <AppBar
       position="static"
-      sx={(theme) => ({
-        bgcolor: theme.palette.background.default,
+      sx={{
+        bgcolor: 'black',
         boxShadow: "none",
         borderBottom: "1px solid",
         borderImage:
           "linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0)) 1",
-      })}
+      }}
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/*로고*/}
           <Box
             component="img"
-            src={logoImage} // 이미지 경로 지정
+            src={logoImage}
             sx={{
               display: { xs: "none", md: "flex" },
               mr: 1,
               mb: "1.2rem",
-              height: "40px", // 원하는 크기로 조정
+              height: "40px",
             }}
             alt="logo"
           />
@@ -96,12 +95,12 @@ function Navbar() {
           </Box>
           <Box
             component="img"
-            src={logoImage} // 이미지 경로 지정
+            src={logoImage}
             sx={{
               maxWidth: "100px",
               maxHeight: "40px",
-              display: { xs: "block", md: "none" }, // flex 대신 block 사용
-              margin: "0 auto", // 가운데 정렬을 위해 추가
+              display: { xs: "block", md: "none" },
+              margin: "0 auto",
               mb: "1.2rem",
             }}
             alt="logo"
