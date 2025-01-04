@@ -9,28 +9,18 @@ import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import {useNavigate} from "react-router-dom";
 import logoImage from '/src/assets/logo_finfit_w.png';
 
 const pages = ['Home', 'CheckList'];
-// const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 function Navbar() {
     const navigate = useNavigate()
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-    // const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
 
     const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElNav(event.currentTarget);
     };
-    // const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    //     setAnchorElUser(event.currentTarget);
-    // };
-
-    // const handleCloseNavMenu = () => {
-    //     setAnchorElNav(null);
-    // };
 
     const handleCloseNavMenu = (path: string = '') => {
         setAnchorElNav(null);
@@ -40,10 +30,6 @@ function Navbar() {
             navigate(navigatePath);
         }
     };
-
-    // const handleCloseUserMenu = () => {
-    //     setAnchorElUser(null);
-    // };
 
     return (
         <AppBar
@@ -57,35 +43,18 @@ function Navbar() {
         >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
+                    {/*로고*/}
                     <Box
                         component="img"
                         src={logoImage}  // 이미지 경로 지정
                         sx={{
                             display: { xs: 'none', md: 'flex' },
                             mr: 1,
+                            mb: '1.2rem',
                             height: '40px'  // 원하는 크기로 조정
                         }}
                         alt="logo"
                     />
-
-                    {/*<Typography*/}
-                    {/*    variant="h6"*/}
-                    {/*    noWrap*/}
-                    {/*    component="a"*/}
-                    {/*    href="/"*/}
-                    {/*    sx={{*/}
-                    {/*        mr: 2,*/}
-                    {/*        display: { xs: 'none', md: 'flex' },*/}
-                    {/*        fontFamily: 'monospace',*/}
-                    {/*        fontWeight: 700,*/}
-                    {/*        letterSpacing: '.3rem',*/}
-                    {/*        color: 'inherit',*/}
-                    {/*        textDecoration: 'none',*/}
-                    {/*    }}*/}
-                    {/*>*/}
-                    {/*    <img src={'../../asset/logo_finfit_w.png'} sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />*/}
-                    {/*</Typography>*/}
-
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
                             size="large"
@@ -115,20 +84,11 @@ function Navbar() {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={() => handleCloseNavMenu(page)}>
-                                    <Typography sx={{ textAlign: 'center' }}>{page}</Typography>
+                                    <Typography sx={{ textAlign: 'center', fontSize: '1.2rem' }}>{page}</Typography>
                                 </MenuItem>
                             ))}
                         </Menu>
                     </Box>
-                    {/*<AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />*/}
-                    {/*<Typography*/}
-                    {/*    variant="h5"*/}
-                    {/*    noWrap*/}
-                    {/*    component="a"*/}
-                    {/*    href="/"*/}
-                    {/*>*/}
-                    {/*    LOGO*/}
-                    {/*</Typography>*/}
                     <Box
                         component="img"
                         src={logoImage}  // 이미지 경로 지정
@@ -137,50 +97,21 @@ function Navbar() {
                             maxHeight: '40px',
                             display: { xs: 'block', md: 'none' }, // flex 대신 block 사용
                             margin: '0 auto',  // 가운데 정렬을 위해 추가
+                            mb: '1.2rem',
                         }}
                         alt="logo"
                     />
-
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
                             <Button
                                 key={page}
                                 onClick={() => handleCloseNavMenu(page)}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'white', display: 'block', fontSize: '1.2rem'}}
                             >
                                 {page}
                             </Button>
                         ))}
                     </Box>
-                    {/*<Box sx={{ flexGrow: 0 }}>*/}
-                    {/*    <Tooltip title="Open settings">*/}
-                    {/*        <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>*/}
-                    {/*            <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />*/}
-                    {/*        </IconButton>*/}
-                    {/*    </Tooltip>*/}
-                    {/*    <Menu*/}
-                    {/*        sx={{ mt: '45px' }}*/}
-                    {/*        id="menu-appbar"*/}
-                    {/*        anchorEl={anchorElUser}*/}
-                    {/*        anchorOrigin={{*/}
-                    {/*            vertical: 'top',*/}
-                    {/*            horizontal: 'right',*/}
-                    {/*        }}*/}
-                    {/*        keepMounted*/}
-                    {/*        transformOrigin={{*/}
-                    {/*            vertical: 'top',*/}
-                    {/*            horizontal: 'right',*/}
-                    {/*        }}*/}
-                    {/*        open={Boolean(anchorElUser)}*/}
-                    {/*        onClose={handleCloseUserMenu}*/}
-                    {/*    >*/}
-                    {/*        {settings.map((setting) => (*/}
-                    {/*            <MenuItem key={setting} onClick={handleCloseUserMenu}>*/}
-                    {/*                <Typography sx={{ textAlign: 'center' }}>{setting}</Typography>*/}
-                    {/*            </MenuItem>*/}
-                    {/*        ))}*/}
-                    {/*    </Menu>*/}
-                    {/*</Box>*/}
                 </Toolbar>
             </Container>
         </AppBar>
