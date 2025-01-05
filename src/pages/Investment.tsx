@@ -5,7 +5,7 @@ import Autocomplete from '@mui/material/Autocomplete';
 import TextField from '@mui/material/TextField';
 import { API_URL } from "../services";
 import {stockList} from "../data/stockList.ts";
-import {CircularProgress} from "@mui/material";
+import {CircularProgress, Typography} from "@mui/material";
 
 const InvestmentSection = styled(Box)(({ theme }) => ({
   padding: '100px 32px 32px 32px',
@@ -26,6 +26,12 @@ const Investment = () => {
 
   return (
     <InvestmentSection>
+      <Typography sx={{p: '2rem'}}>
+        <h1>Investment</h1>
+      </Typography>
+      {/*<Typography>*/}
+      {/*  Investment*/}
+      {/*</Typography>*/}
       <Autocomplete
         multiple
         options={stockList}

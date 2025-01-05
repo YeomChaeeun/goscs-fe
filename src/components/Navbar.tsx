@@ -11,7 +11,6 @@ import Button from '@mui/material/Button';
 import MenuItem from '@mui/material/MenuItem';
 import {useNavigate} from "react-router-dom";
 import logoImage from '/src/assets/logo_finfit_w.png';
-import {CssBaseline} from "@mui/material";
 
 const pages = ['Home', 'CheckList', 'Investment'];
 
@@ -61,8 +60,10 @@ function Navbar() {
               mr: 1,
               mb: "1.2rem",
               height: "40px",
+              cursor: 'pointer',
             }}
             alt="logo"
+            onClick={() => navigate('/')}
           />
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
