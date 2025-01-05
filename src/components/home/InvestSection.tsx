@@ -3,9 +3,9 @@ import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const TradeSection = styled(Box)(({ theme }) => ({
-  minHeight: "100vh",
+  minHeight: "80vh",
   padding: theme.spacing(4),
-  backgroundImage: "linear-gradient(45deg, #FF6B6B, #c53b2f)",
+  bgColor:'background.default',
   color: "white",
   display: "flex",
   flexDirection: "column",
@@ -16,16 +16,17 @@ const InvestSection = () => {
   const navigate = useNavigate();
   return (
     <TradeSection>
-      <Typography variant="h3" gutterBottom>
-        Track Stock Trends with Interactive Charts
+      <Typography variant="h3" gutterBottom sx={{fontWeight: 'medium'}}>
+        Track Stock Trends
+        <br />with Interactive Charts
       </Typography>
-      <Typography variant="h6" sx={{ fontSize: "1.5rem", maxWidth: 750 }}>
-        Explore the performance of stocks with our{" "}
+      <Typography variant="h6" sx={{ fontSize: "1.5rem", maxWidth: 1000 }}>
+        Explore the performance of stocks <br/> with our{" "}
         <span style={{ textDecoration: "underline" }}>
           <strong>dynamic trend charts.</strong>{" "}
         </span>{" "}
-        <br />
-        Search for any stock to see its growth trajectory and gain valuable{" "}
+        Search for any stock to see
+        <br />its growth trajectory and gain valuable{" "}
         <span style={{ textDecoration: "underline" }}>
           <strong>insights. ✨</strong>{" "}
         </span>{" "}
@@ -33,7 +34,7 @@ const InvestSection = () => {
       </Typography>
       <Button
         variant="contained"
-        color="secondary"
+        // color="secondary"
         size="large"
         sx={{ mt: 4, alignSelf: "flex-start" }}
         onClick={() => navigate("/investment")}
