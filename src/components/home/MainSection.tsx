@@ -1,5 +1,5 @@
 import { Component } from 'react';
-import { Typography, Button, Box } from '@mui/material';
+import {Typography, Button, Box, Container} from '@mui/material';
 import { styled } from '@mui/material/styles';
 import backgroundImg from "/src/assets/background_img.png";
 
@@ -43,6 +43,7 @@ class MainSection extends Component<{ onClick: () => void | Promise<void> }> {
     return (
       <ParentContainer>
         <BackgroundImage />
+        <Container maxWidth="lg">
         <HeroSection>
           <Typography
             variant="h3"
@@ -86,6 +87,7 @@ class MainSection extends Component<{ onClick: () => void | Promise<void> }> {
             Start Now
           </Button>
         </HeroSection>
+        </Container>
       </ParentContainer>
     );
   }
