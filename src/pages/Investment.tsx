@@ -1,37 +1,51 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
 import { API_URL } from "../services";
-import { stockList } from "../data/stockList.ts";
 import { CircularProgress, Typography } from "@mui/material";
+import {newsApi} from "../services/newsApi.ts";
+import {StockItem} from "../types/news.ts";
 
-const InvestmentSection = styled(Box)(({ theme }) => ({
+const InvestmentSection = styled(Box)({
   padding: "100px 32px 32px 32px",
   textAlign: "center",
   color: "white",
-}));
+});
 
 const Investment = () => {
   const [selectedItems, setSelectedItems] = useState<string[]>(["QQQ", "SPY"]);
   const [isLoading, setIsLoading] = useState(true);
+  const [stockList, setStockList] = useState<Array<{label:string; id:string}>>([{label:'QQQ', id:'QQQ'},{label:'SPY', id:'SPY'}])
 
-  const handleChange = (event: any, newValue: any) => {
+  const handleChange = (
+    event: React.SyntheticEvent,
+    newValue: Array<{label:string; id:string}>
+  ) => {
     if (newValue.length <= 2) {
       if (newValue.length === 2) setIsLoading(true);
-      setSelectedItems(newValue.map((item: any) => item.id));
+      setSelectedItems(newValue.map((item) => item.id));
     }
   };
 
+  useEffect(() => {
+    const item_name = encodeURIComponent('S&P500')
+    newsApi.getMainStockList(item_name).then((value) => {
+      const mappedList = value.data.map((item: StockItem) => ({
+        id: item.Symbol,
+        label: item.Name
+      }));
+
+      setStockList([...stockList, ...mappedList]);
+    })
+  }, []);
+
   return (
     <InvestmentSection>
-      <Typography sx={{ p: "2rem" }}>
-        <h1>Investment</h1>
+      <Typography variant="h4" component="h1" sx={{ p: "2rem", fontWeight: 'bold' }}>
+        Investment
       </Typography>
-      {/*<Typography>*/}
-      {/*  Investment*/}
-      {/*</Typography>*/}
       <Autocomplete
         multiple
         options={stockList}
