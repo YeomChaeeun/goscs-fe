@@ -10,6 +10,7 @@ import Home from "./pages/Home.tsx";
 import "./styles/global.css";
 import ChecklistResult from "./pages/ChecklistResult.tsx";
 import Investment from "./pages/Investment.tsx";
+import Footer from "./components/Footer.tsx";
 
 const themeOptions: ThemeOptions = {
   typography: {
@@ -35,7 +36,7 @@ const themeOptions: ThemeOptions = {
       secondary: "rgba(234,233,233,0.6)",
       disabled: "rgba(232,232,232,0.38)",
     },
-    divider: "rgba(148,146,146,0.12)",
+    divider: 'rgba(80,76,76,0.4)',
   },
 };
 
@@ -56,6 +57,7 @@ const App = () => {
             <Route path={"/investment"} element={<Investment />} />
           </Routes>
         </DefaultLayout>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );
