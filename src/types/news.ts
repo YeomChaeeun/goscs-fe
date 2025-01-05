@@ -4,3 +4,10 @@ export interface NewsItem {
   summary: string;
   wdate: string;
 }
+
+export interface StockItem {
+  Industry: string;
+  Name: string;
+  Sector: string;
+  Symbol: string;
+}
