@@ -3,7 +3,7 @@ import {Chart} from "react-google-charts";
 import {useRecoilValue} from "recoil";
 import {checklistState} from "../recoil/atoms/assetAtom";
 import {theme} from "../App.tsx";
-import {Box, Typography} from "@mui/material";
+import {Box, Container, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import Button from "@mui/material/Button";
 
@@ -12,14 +12,13 @@ const AssetAllocation: React.FC = () => {
   const [totalAsset, setTotalAsset] = useState<number | "">("");
 
   const assetStateRecoil = useRecoilValue(checklistState);
+  const profileType = assetStateRecoil.profile;
 
   const allocation = {
     "Conservative Investor": { Bonds: 80, Savings: 20 },
     "Moderate Investor": { Bonds: 40, Stocks: 40, REITs: 20 },
     "Aggressive Investor": { Stocks: 60, Leverage: 30, Cryptocurrency: 10 },
   };
-
-  useEffect(() => {}, [totalAsset]);
 
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value.replace(/,/g, "");
@@ -30,12 +29,28 @@ const AssetAllocation: React.FC = () => {
     }
   };
 
-  const profileType = assetStateRecoil.profile;
   if (!profileType) {
     return (
-      <p>
-        Investment profile is not selected. Please go back to the previous page.
-      </p>
+      <Box sx={{ p: 5,
+        paddingTop: '100px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}>
+        <Typography variant="h4" color="text.primary" >
+          Investment profile is not selected. Please go back to the previous page.
+        </Typography>
+        <br />
+        <Button
+          onClick={() => navigate(-1)}
+          variant="contained"
+          sx={{
+            padding: theme.spacing(1.25, 2.5),
+          }}
+        >
+          Go Back
+        </Button>
+      </Box>
     );
   }
   const percentages = allocation[profileType as keyof typeof allocation];
@@ -70,16 +85,15 @@ const AssetAllocation: React.FC = () => {
         color: 'white'
       }}
     >
-      <div>
+      <Container>
         <Typography>
-          <h1>Asset Allocation Example for {profileType}</h1>
+          <h1>Asset Allocation Example {profileType && `for ${profileType}`}</h1>
         </Typography>
         <Typography>
-          <p>
-            Assets are distributed according to the following percentages based
-            on your investment profile:
-          </p>
+          Assets are distributed according to the following percentages based
+          on your investment profile:
         </Typography>
+        <br />
         <input
           type="text"
           value={formatNumber(totalAsset ? Number(totalAsset) : "")}
@@ -121,7 +135,7 @@ const AssetAllocation: React.FC = () => {
             Go Back
           </Button>
         </Box>
-      </div>
+      </Container>
     </Box>
   );
 };

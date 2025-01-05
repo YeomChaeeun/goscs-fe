@@ -30,6 +30,7 @@ const Investment = () => {
   };
 
   useEffect(() => {
+    scroll(0, 0)
     const item_name = encodeURIComponent('S&P500')
     newsApi.getMainStockList(item_name).then((value) => {
       const mappedList = value.data.map((item: StockItem) => ({
