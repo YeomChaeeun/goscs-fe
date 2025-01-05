@@ -25,6 +25,7 @@ const ChecklistResult = () => {
           </Typography>
           <Typography>
             <h2>Recommendations</h2>
+            <Typography color="primary" variant="h6">These examples are provided for reference only. All investment decisions are entirely your responsibility.</Typography>
             <ul>
               {recommendations[profile].map(
                 (item: { id: number; title: string }) => (
