@@ -15,8 +15,8 @@ import Footer from "./components/Footer.tsx";
 const themeOptions: ThemeOptions = {
   typography: {
     fontFamily: [
-      '-apple-system',
       'Exo',
+      '-apple-system',
     ].join(','),
   },
   palette: {
