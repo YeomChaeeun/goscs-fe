@@ -44,10 +44,17 @@ class MainSection extends Component<{ onClick: () => void | Promise<void> }> {
       <ParentContainer>
         <BackgroundImage />
         <HeroSection>
-          <Typography color="textPrimary" variant="h3" sx={{ fontWeight: 'medium' }}>
+          <Typography
+            variant="h3"
+            component="h1"
+            sx={{
+              fontWeight: 'bold',
+              mb: 2,
+              // fontSize: { xs: '2.5rem', md: '3.5rem' }
+            }}
+          >
             Personalized Investment Solutions
           </Typography>
-          <br />
           <Typography
             variant="h5"
             gutterBottom
