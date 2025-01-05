@@ -6,9 +6,9 @@ import { useSetRecoilState } from "recoil";
 import { assetState, checklistState } from "../../recoil/atoms/assetAtom.ts";
 import { useNavigate } from "react-router-dom";
 import React from "react";
-import lowRiskIcon from '/src/assets/logo_finfit_b.png';
-import mediumRiskIcon from '/src/assets/logo_finfit_b.png';
-import highRiskIcon from '/src/assets/logo_finfit_b.png';
+import icon01 from '/src/assets/icon_01.png';
+import icon02 from '/src/assets/icon_02.png';
+import icon03 from '/src/assets/icon_03.png';
 
 const FeaturesSection = styled(Box)(({ theme }) => ({
   padding: theme.spacing(8, 4),
@@ -19,7 +19,7 @@ const FeaturesSection = styled(Box)(({ theme }) => ({
 }));
 
 const FeatureCard = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(3),
+  padding: theme.spacing(5),
   backgroundColor: "white",
   borderRadius: theme.spacing(2),
   margin: theme.spacing(2),
@@ -35,8 +35,8 @@ const FeatureCard = styled(Box)(({ theme }) => ({
 
 // 이미지 아이콘을 위한 스타일드 컴포넌트
 const IconImage = styled('img')({
-  width: '102px',  // 이미지 크기 조절
-  height: '102px',
+  width: '122px',  // 이미지 크기 조절
+  height: '122px',
   objectFit: 'contain'
 });
 
@@ -58,15 +58,14 @@ const FeatureSection = () => {
     setAssetStateRecoil(profile);
     navigate("/checklist/result");
   };
-  // getProfileIcons 함수 수정
   const getProfileIcons = (profile: InvestmentProfile) => {
     switch (profile) {
       case "Conservative Investor":
-        return <IconImage src={lowRiskIcon} alt="low risk" />
+        return <IconImage src={icon01} alt="low risk" />
       case "Moderate Investor":
-        return  <IconImage src={mediumRiskIcon} alt="medium risk" />
+        return  <IconImage src={icon02} alt="medium risk" />
       case "Aggressive Investor":
-        return <IconImage src={highRiskIcon} alt="high risk" />
+        return <IconImage src={icon03} alt="high risk" />
 
       default:
         return null;
@@ -108,11 +107,11 @@ const FeatureSection = () => {
                   <Typography variant="h6" gutterBottom>
                     <strong>{profile}</strong>
                   </Typography>
-                  {/*<IconContainer>*/}
-                  {/*  <Box key={profile + 'icon'} sx={{ p: 1 }}>*/}
-                  {/*    {getProfileIcons(profile)}*/}
-                  {/*  </Box>*/}
-                  {/*</IconContainer>*/}
+                  <IconContainer>
+                    <Box key={profile + 'icon'} sx={{ p: 1 }}>
+                      {getProfileIcons(profile)}
+                    </Box>
+                  </IconContainer>
                 </FeatureCard>
               );
             }
