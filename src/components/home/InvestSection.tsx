@@ -3,9 +3,9 @@ import { Box, Button, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
 const TradeSection = styled(Box)(({ theme }) => ({
-  minHeight: "100vh",
+  minHeight: "80vh",
   padding: theme.spacing(4),
-  backgroundImage: "linear-gradient(45deg, #FF6B6B, #c53b2f)",
+  bgColor:'background.default',
   color: "white",
   display: "flex",
   flexDirection: "column",
@@ -33,7 +33,7 @@ const InvestSection = () => {
       </Typography>
       <Button
         variant="contained"
-        color="secondary"
+        // color="secondary"
         size="large"
         sx={{ mt: 4, alignSelf: "flex-start" }}
         onClick={() => navigate("/investment")}
