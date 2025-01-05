@@ -7,11 +7,18 @@ import {Li, StyledLi, StyledLink} from "../styles/box.tsx";
 import Button from "@mui/material/Button";
 import {assetAllocation} from "../data/assetAllocation.ts";
 import {Typography} from "@mui/material";
+import {useEffect} from "react";
 
 const ChecklistResult = () => {
   const navigate = useNavigate();
   const state = useRecoilValue(checklistState);
   const { profile } = state;
+
+  useEffect(() => {
+    scroll(0, 0)
+    if(!profile) navigate('/')
+  });
+
   return (
     <div style={{ display: "flex", justifyContent: "center", padding: '100px 32px 32px 32px',}}>
       {profile && (

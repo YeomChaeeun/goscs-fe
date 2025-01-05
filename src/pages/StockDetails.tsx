@@ -56,7 +56,7 @@ const StockDetails: React.FC = () => {
       </Typography>
 
       <Typography variant="h5" color="text.primary" sx={{ mb: 2 }}>
-        Example Recommendations for {assetStateRecoil}
+        Example Recommendations {assetStateRecoil && `for ${assetStateRecoil}`}
       </Typography>
 
       <Typography variant="body1" color="text.primary">
