@@ -1,7 +1,9 @@
 import {Box, Button, Container, Typography} from "@mui/material";
 import hpImage from "/src/assets/hp.png";
+import {useNavigate} from "react-router-dom";
 
 const InvestSection = () => {
+  const navigate = useNavigate()
   return (
     <Box
       sx={{
@@ -62,6 +64,7 @@ const InvestSection = () => {
                   bgcolor: '#CA4425'
                 }
               }}
+              onClick={() => navigate('/investment')}
             >
               GET STARTED
             </Button>
