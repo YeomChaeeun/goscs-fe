@@ -3,9 +3,10 @@ import {useNavigate} from "react-router-dom";
 import {useRecoilValue} from "recoil";
 import {checklistState} from "../recoil/atoms/assetAtom.ts";
 import {theme} from "../App.tsx";
-import {Item, Li, StyledLi, StyledLink} from "../styles/box.tsx";
+import {Li, StyledLi, StyledLink} from "../styles/box.tsx";
 import Button from "@mui/material/Button";
-import { assetAllocation } from "../data/assetAllocation.ts";
+import {assetAllocation} from "../data/assetAllocation.ts";
+import {Typography} from "@mui/material";
 
 const ChecklistResult = () => {
   const navigate = useNavigate();
@@ -16,14 +17,13 @@ const ChecklistResult = () => {
       {profile && (
         <div
           style={{
-            fontFamily: "Arial, sans-serif",
             color: theme.palette.text.primary,
           }}
         >
-          <Item>
+          <Typography>
             <h1>Your Investment Profile: {state.profile}</h1>
-          </Item>
-          <Item>
+          </Typography>
+          <Typography>
             <h2>Recommendations</h2>
             <ul>
               {recommendations[profile].map(
@@ -36,8 +36,8 @@ const ChecklistResult = () => {
                 )
               )}
             </ul>
-          </Item>
-          <Item>
+          </Typography>
+          <Typography>
             <h2>Asset Allocation Recommendation</h2>
             <ul>
               {Object.entries(
@@ -48,7 +48,8 @@ const ChecklistResult = () => {
                 </Li>
               ))}
             </ul>
-          </Item>
+          </Typography>
+          <br />
           <Button
             onClick={() => navigate(`/asset-allocation`)}
             variant="contained"

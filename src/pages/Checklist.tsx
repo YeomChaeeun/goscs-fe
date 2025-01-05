@@ -1,15 +1,12 @@
-import React, { useState } from "react";
-import { InvestmentProfile, questions } from "../data/questions";
-import { useNavigate } from "react-router-dom";
-import { useRecoilState, useSetRecoilState } from "recoil";
-import { assetState, checklistState } from "../recoil/atoms/assetAtom";
-import { theme } from "../App.tsx";
+import React, {useState} from "react";
+import {InvestmentProfile, questions} from "../data/questions";
+import {useNavigate} from "react-router-dom";
+import {useRecoilState, useSetRecoilState} from "recoil";
+import {assetState, checklistState} from "../recoil/atoms/assetAtom";
 import Box from "@mui/material/Box";
-import { Item } from "../styles/box.tsx";
 import {styled} from "@mui/material/styles";
 import backgroundImg from "/src/assets/background_image_checklist.jpeg";
 import {Typography} from "@mui/material";
-
 
 const ParentContainer = styled(Box)({
   width: '100%',
@@ -87,12 +84,7 @@ const Checklist: React.FC = () => {
           padding: '2rem',
         }}
       >
-        <div
-          style={{
-            fontFamily: "Arial, sans-serif",
-            // color: theme.palette.text.primary,
-          }}
-        >
+        <div>
           <div style={{ marginBottom: "20px" }}>
             <Typography sx={{ pb: 2 }} >
               <h2>Investment Profile Checklist</h2>
@@ -101,7 +93,7 @@ const Checklist: React.FC = () => {
               <h3>{currentQuestion.question}</h3>
             </Typography>
             {currentQuestion.options.map((option) => (
-              <div key={option.label}>
+              <Typography key={option.label}>
                 <label>
                   <input
                     style={{ margin: "10px" }}
@@ -113,7 +105,7 @@ const Checklist: React.FC = () => {
                   />
                   {option.label}
                 </label>
-              </div>
+              </Typography>
             ))}
           </div>
           {error && (

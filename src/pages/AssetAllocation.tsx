@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from "react";
-import { Chart } from "react-google-charts";
-import { useRecoilValue } from "recoil";
-import { checklistState } from "../recoil/atoms/assetAtom";
-import { theme } from "../App.tsx";
-import { Box } from "@mui/material";
-import { Item } from "../styles/box.tsx";
+import React, {useEffect, useState} from "react";
+import {Chart} from "react-google-charts";
+import {useRecoilValue} from "recoil";
+import {checklistState} from "../recoil/atoms/assetAtom";
+import {theme} from "../App.tsx";
+import {Box, Typography} from "@mui/material";
 import {useNavigate} from "react-router-dom";
 import Button from "@mui/material/Button";
 
@@ -68,23 +67,19 @@ const AssetAllocation: React.FC = () => {
         height: "100vh",
         gridTemplateRows: "repeat(2, 1fr)",
         padding: '100px 32px 32px 32px',
+        color: 'white'
       }}
     >
-      <div
-        style={{
-          fontFamily: "Arial, sans-serif",
-          color: theme.palette.text.primary,
-        }}
-      >
-        <Item>
+      <div>
+        <Typography>
           <h1>Asset Allocation Example for {profileType}</h1>
-        </Item>
-        <Item>
+        </Typography>
+        <Typography>
           <p>
             Assets are distributed according to the following percentages based
             on your investment profile:
           </p>
-        </Item>
+        </Typography>
         <input
           type="text"
           value={formatNumber(totalAsset ? Number(totalAsset) : "")}
@@ -102,9 +97,9 @@ const AssetAllocation: React.FC = () => {
             height={"400px"}
           />
         ) : (
-          <p style={{ color: "red" }}>
+          <Typography style={{ color: "red" }}>
             Enter the total asset amount to display the graph.
-          </p>
+          </Typography>
         )}
         <br />
 

@@ -18,7 +18,6 @@ const FeaturesSection = styled(Box)(({ theme }) => ({
   color: "white",
 }));
 
-
 const FeatureCard = styled(Box)(({ theme }) => ({
   padding: theme.spacing(3),
   backgroundColor: "white",
@@ -27,7 +26,9 @@ const FeatureCard = styled(Box)(({ theme }) => ({
   height: "300px",
   display: "flex",
   flexDirection: "column",
-  justifyContent: "space-between", // 컨텐츠와 아이콘 사이 공간 분배
+  alignItems: "center",
+  justifyContent: "center",
+  // justifyContent: "space-between",
   color: "black",
   cursor: "pointer",
 }));
@@ -75,13 +76,13 @@ const FeatureSection = () => {
   return (
     <FeaturesSection>
       <Typography
-        style={{ marginTop: "50px", marginBottom: "100px" }}
+        style={{ margin: "50px"}}
         variant="h3"
         gutterBottom
+        sx={{fontWeight: 'medium'}}
       >
-        There are three investment tendencies.
-        <br />
-        Try it 🚀.
+        There are three investment
+        <br />tendencies. Try it 🚀.
       </Typography>
       <Container maxWidth="md" sx={{ mt: 4 }}>
         <Box
@@ -95,22 +96,6 @@ const FeatureSection = () => {
             gap: 3,
           }}
         >
-          {/*{(Object.keys(recommendations) as InvestmentProfile[]).map(*/}
-          {/*  (profile) => {*/}
-          {/*    return (*/}
-          {/*      <FeatureCard*/}
-          {/*        key={profile}*/}
-          {/*        onClick={() => {*/}
-          {/*          handleSelectProfile(profile);*/}
-          {/*        }}*/}
-          {/*      >*/}
-          {/*        <Typography variant="h6" gutterBottom>*/}
-          {/*          <strong>{profile}</strong>*/}
-          {/*        </Typography>*/}
-          {/*      </FeatureCard>*/}
-          {/*    );*/}
-          {/*  }*/}
-          {/*)}*/}
           {(Object.keys(recommendations) as InvestmentProfile[]).map(
             (profile) => {
               return (
@@ -123,11 +108,11 @@ const FeatureSection = () => {
                   <Typography variant="h6" gutterBottom>
                     <strong>{profile}</strong>
                   </Typography>
-                  <IconContainer>
-                    <Box key={profile + 'icon'} sx={{ p: 1 }}>
-                      {getProfileIcons(profile)}
-                    </Box>
-                  </IconContainer>
+                  {/*<IconContainer>*/}
+                  {/*  <Box key={profile + 'icon'} sx={{ p: 1 }}>*/}
+                  {/*    {getProfileIcons(profile)}*/}
+                  {/*  </Box>*/}
+                  {/*</IconContainer>*/}
                 </FeatureCard>
               );
             }

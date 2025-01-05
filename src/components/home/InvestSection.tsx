@@ -16,16 +16,17 @@ const InvestSection = () => {
   const navigate = useNavigate();
   return (
     <TradeSection>
-      <Typography variant="h3" gutterBottom>
-        Track Stock Trends with Interactive Charts
+      <Typography variant="h3" gutterBottom sx={{fontWeight: 'medium'}}>
+        Track Stock Trends
+        <br />with Interactive Charts
       </Typography>
-      <Typography variant="h6" sx={{ fontSize: "1.5rem", maxWidth: 750 }}>
-        Explore the performance of stocks with our{" "}
+      <Typography variant="h6" sx={{ fontSize: "1.5rem", maxWidth: 1000 }}>
+        Explore the performance of stocks <br/> with our{" "}
         <span style={{ textDecoration: "underline" }}>
           <strong>dynamic trend charts.</strong>{" "}
         </span>{" "}
-        <br />
-        Search for any stock to see its growth trajectory and gain valuable{" "}
+        Search for any stock to see
+        <br />its growth trajectory and gain valuable{" "}
         <span style={{ textDecoration: "underline" }}>
           <strong>insights. ✨</strong>{" "}
         </span>{" "}

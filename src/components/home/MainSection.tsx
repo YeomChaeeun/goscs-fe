@@ -31,9 +31,10 @@ const HeroSection = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "center",
-  alignItems: "center",
+  alignItems: "self-start",
   padding: theme.spacing(4),
   color: "white",
+  // textAlign: "center",
   zIndex: 1,
 }));
 
@@ -43,13 +44,14 @@ class MainSection extends Component<{ onClick: () => void | Promise<void> }> {
       <ParentContainer>
         <BackgroundImage />
         <HeroSection>
-          <Typography variant="h3" gutterBottom sx={{ textAlign: 'center', width: '100%' }}>
+          <Typography color="textPrimary" variant="h3" sx={{ fontWeight: 'medium' }}>
             Personalized Investment Solutions
           </Typography>
+          <br />
           <Typography
             variant="h5"
             gutterBottom
-            sx={{ maxWidth: 600, lineHeight: 1.7, textAlign: 'center', margin: '0 auto' }}
+            sx={{ maxWidth: 800, lineHeight: 1.7}}
           >
             Discover your perfect investment strategy with{" "}
             <span style={{ textDecoration: "underline" }}>
