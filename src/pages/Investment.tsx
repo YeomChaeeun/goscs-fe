@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
-import Autocomplete from '@mui/material/Autocomplete';
-import TextField from '@mui/material/TextField';
+import Autocomplete from "@mui/material/Autocomplete";
+import TextField from "@mui/material/TextField";
 import { API_URL } from "../services";
-import {stockList} from "../data/stockList.ts";
-import {CircularProgress, Typography} from "@mui/material";
+import { stockList } from "../data/stockList.ts";
+import { CircularProgress, Typography } from "@mui/material";
 
 const InvestmentSection = styled(Box)(({ theme }) => ({
-  padding: '100px 32px 32px 32px',
+  padding: "100px 32px 32px 32px",
   textAlign: "center",
   color: "white",
 }));
@@ -19,14 +19,14 @@ const Investment = () => {
 
   const handleChange = (event: any, newValue: any) => {
     if (newValue.length <= 2) {
-      if(newValue.length === 2) setIsLoading(true)
+      if (newValue.length === 2) setIsLoading(true);
       setSelectedItems(newValue.map((item: any) => item.id));
     }
   };
 
   return (
     <InvestmentSection>
-      <Typography sx={{p: '2rem'}}>
+      <Typography sx={{ p: "2rem" }}>
         <h1>Investment</h1>
       </Typography>
       {/*<Typography>*/}
@@ -35,7 +35,7 @@ const Investment = () => {
       <Autocomplete
         multiple
         options={stockList}
-        value={stockList.filter(option => selectedItems.includes(option.id))}
+        value={stockList.filter((option) => selectedItems.includes(option.id))}
         onChange={handleChange}
         getOptionLabel={(option) => option.label}
         renderInput={(params) => (
@@ -55,19 +55,23 @@ const Investment = () => {
       />
       <br />
       {selectedItems.length === 2 && (
-        <Box sx={{ position: 'relative' }}>
+        <Box sx={{ position: "relative" }}>
           {isLoading && (
-            <Box sx={{
-              display: 'flex',
-              justifyContent: 'center',
-              alignItems: 'center',
-              minHeight: '200px',
-            }}>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                minHeight: "200px",
+              }}
+            >
               <CircularProgress />
             </Box>
           )}
           <img
-            src={`${API_URL}/api/adjusted_close_graph?item_code_list=${selectedItems.join(',')}`}
+            src={`${API_URL}/api/adjusted_close_graph?item_code_list=${selectedItems.join(
+              ","
+            )}`}
             alt="Preview image"
             style={{ width: "100%", maxWidth: "600px" }}
             onLoad={() => setIsLoading(false)}
