@@ -12,6 +12,12 @@ import ChecklistResult from "./pages/ChecklistResult.tsx";
 import Investment from "./pages/Investment.tsx";
 
 const themeOptions: ThemeOptions = {
+  typography: {
+    fontFamily: [
+      '-apple-system',
+      'Exo',
+    ].join(','),
+  },
   palette: {
     mode: "dark",
     primary: {
