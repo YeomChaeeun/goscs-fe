@@ -54,11 +54,11 @@ const Checklist: React.FC = () => {
         placeItems: "center",
         height: "100vh",
         gridTemplateRows: "repeat(2, 1fr)",
+        padding: '100px 32px 32px 32px',
       }}
     >
       <div
         style={{
-          padding: "20px",
           fontFamily: "Arial, sans-serif",
           color: theme.palette.text.primary,
         }}

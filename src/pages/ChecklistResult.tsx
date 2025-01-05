@@ -12,11 +12,10 @@ const ChecklistResult = () => {
   const state = useRecoilValue(checklistState);
   const { profile } = state;
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center", padding: '100px 32px 32px 32px',}}>
       {profile && (
         <div
           style={{
-            padding: "20px",
             fontFamily: "Arial, sans-serif",
             color: theme.palette.text.primary,
           }}

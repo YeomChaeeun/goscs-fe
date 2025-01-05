@@ -8,7 +8,7 @@ import {stockList} from "../data/stockList.ts";
 import {CircularProgress} from "@mui/material";
 
 const InvestmentSection = styled(Box)(({ theme }) => ({
-  padding: theme.spacing(4),
+  padding: '100px 32px 32px 32px',
   textAlign: "center",
   color: "white",
 }));

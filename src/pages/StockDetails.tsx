@@ -36,7 +36,7 @@ const StockDetails: React.FC = () => {
 
   if (!id) {
     return (
-      <div style={{ color: "red", padding: "20px" }}>
+      <div style={{ color: "red", padding: '100px 32px 32px 32px', }}>
         <p>Invalid access. No ID provided.</p>
         <button onClick={() => navigate(-1)} style={{ padding: "10px 20px" }}>
           Go Back
