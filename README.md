@@ -13,7 +13,7 @@ Deploy your own Vite project with Vercel.
 _Live Example: https://vite-react-example.vercel.app_
 
 ### Demonstration Video ###
-<img width="80%" src="https://github.com/user-attachments/assets/7af298f1-ca94-47bb-a667-f2fcec57d187.gif"/>
+<img width="80%" src="https://github.com/user-attachments/assets/7af298f1-ca94-47bb-a667-f2fcec57d187.gif](https://github.com/YeomChaeeun/goscs-fe/issues/48"/>
 
 ### Deploying From Your Terminal
 
