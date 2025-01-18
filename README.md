@@ -14,7 +14,7 @@ _Live Example: https://vite-react-example.vercel.app_
 
 ### Demonstration Video ###
 
-<img src="https://youtu.be/Reau4nTVx1k">
+(https://youtu.be/Reau4nTVx1k)
 
 
 
